@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
+import theme from "../../theme/theme.js";
 
 export const FooterContainer = styled(Box)({
-  backgroundColor: "#f5f5f5",
-  borderTop: "1px solid #ddd",
+  backgroundColor: theme.palette.grey[100],
+  borderTop: `1px solid ${theme.palette.divider}`,
   padding: "1.5rem 2rem",
   textAlign: "center",
   fontSize: "0.9rem",
-  color: "#555",
+  color: theme.palette.grey[700],
   marginTop: "auto",
 });
 

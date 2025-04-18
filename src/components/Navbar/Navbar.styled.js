@@ -1,8 +1,9 @@
 import { AppBar, Toolbar, Box } from "@mui/material";
 import { styled } from "@mui/system";
+import theme from "../../theme/theme.js";
 
 export const CustomAppBar = styled(AppBar)({
-  backgroundColor: "#333",
+  backgroundColor: theme.palette.grey[900],
 });
 
 export const CustomToolbar = styled(Toolbar)({
