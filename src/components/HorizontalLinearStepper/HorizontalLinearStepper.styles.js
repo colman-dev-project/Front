@@ -1,28 +1,31 @@
-// HorizontalLinearStepper.styles.js
-export const containerStyle = {
-    width: "100%",
-  };
-  
-  export const stepContentBox = {
-    my: 4,
-  };
-  
-  export const buttonContainer = {
-    display: "flex",
-    flexDirection: "row",
-    pt: 2,
-  };
-  
-  export const spacer = {
-    flex: "1 1 auto",
-  };
-  
-  export const backButton = {
-    mr: 1,
-  };
-  
-  export const completeText = {
-    mt: 2,
-    mb: 1,
-  };
-  
+import { Box, Typography, Button } from "@mui/material";
+import { styled } from "@mui/system";
+import theme from "../../theme/theme.js";
+
+export const StepperContainer = styled(Box)({
+  width: "100%",
+});
+
+export const StepContentBox = styled(Box)({
+  marginTop: theme.spacing(4),
+  marginBottom: theme.spacing(4),
+});
+
+export const ButtonContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "row",
+  paddingTop: theme.spacing(2),
+});
+
+export const Spacer = styled(Box)({
+  flex: "1 1 auto",
+});
+
+export const BackButton = styled(Button)({
+  marginRight: theme.spacing(1),
+});
+
+export const CompleteText = styled(Typography)({
+  marginTop: theme.spacing(2),
+  marginBottom: theme.spacing(1),
+});
