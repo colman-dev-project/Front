@@ -3,8 +3,9 @@ import Box from '@mui/material/Box';
 
 
 export const HeroImgBox = styled(Box)(({ theme }) => ({
-  width: 768,
-  height: 300,
+  width: '50rem',
+  height: '20rem',
+  borderRadius:'10rem',
   objectFit: 'cover',
   boxShadow: theme.shadows[3],
 }));
