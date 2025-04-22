@@ -4,10 +4,10 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import useStep from "./useStep";
-import {containerStyle,stepContentBox,buttonContainer,
-         spacer,backButton,completeText} from "./Stepper.styles";
+import {containerStyle,stepContentBoxStyle ,buttonContainerStyle,
+         spacerStyle,backButton} from "./Stepper.styles";
+         import { UI_TEXT } from "../../constants/text";
 
 import OrderSummary from "./steps/OrderSummary";
 import CustomerDetails from "./steps/CustomerDetails";
@@ -21,8 +21,6 @@ const stepComponents = [
     <OrderComplete />
   ];
   
-const renderStepContent = (step) => stepComponents[step] || null;
-
 const steps = [
   "Order Summary",
   "Customer Details",
@@ -31,7 +29,8 @@ const steps = [
 ];
 
 export default function HorizontalLinearStepper() {
-  const { activeStep, next, back } = useStep(steps.length);
+  const { activeStep, handleNext , handleBack } = useStep(steps.length);
+  const isFinalStep = activeStep === steps.length - 1;
 
   return (
     <Box sx={containerStyle}>
@@ -43,30 +42,32 @@ export default function HorizontalLinearStepper() {
         ))}
       </Stepper>
 
-      <Box sx={stepContentBox}>{renderStepContent(activeStep)}</Box>
-
-      {activeStep === steps.length-1 ? (
-         <Box sx={buttonContainer}>
-         <Box sx={spacer} />
-         <Button onClick={next}>Go Home</Button>
+      <Box sx={stepContentBoxStyle }>
+        {stepComponents[activeStep]}
+      </Box>
+      
+      {isFinalStep ? (
+         <Box sx={buttonContainerStyle }>
+         <Box sx={spacerStyle } />
+         <Button onClick={handleNext }>{UI_TEXT.GO_HOME}</Button>
        </Box>
       ) : (
-        <>
-          <Box sx={buttonContainer}>
+        
+          <Box sx={buttonContainerStyle}>
             <Button
               color="inherit"
-              disabled={activeStep === 0 || activeStep === steps.length - 1}
-              onClick={back}
+              disabled={activeStep === 0 || isFinalStep}
+              onClick={handleBack}
               sx={backButton}
             >
-              Back
+              {UI_TEXT.BACK}
             </Button>
-            <Box sx={spacer} />
-            <Button onClick={next}>
-            {activeStep === steps.length - 2 ? "Finish" : "Next"}
+            <Box sx={spacerStyle} />
+            <Button onClick={handleNext }>
+            {activeStep === steps.length - 2 ? UI_TEXT.FINISH : UI_TEXT.NEXT}
             </Button>
           </Box>
-        </>
+        
       )}
     </Box>
   );

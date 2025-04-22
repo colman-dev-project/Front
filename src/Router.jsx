@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
+import { ENDPOINTS } from "./constants/routerPaths";
 import App from "./App";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
-import OrderProcess from "./pages/OrderProcess.jsx";
+import OrderProcess from "./pages/OrderProcess/OrderProcess.jsx";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,8 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Home /> },
       { path: "about", element: <About /> },
-      { path: "orderProcess", element: <OrderProcess /> },
+      { path: ENDPOINTS.ORDER_PROCESS, element: <OrderProcess /> }
+
     ],
   },
 ]);

@@ -6,4 +6,6 @@ export const ENDPOINTS = {
   PRODUCTS: "/products",
   USERS: "/users",
   LOGIN: "/auth/login",
+  ORDER_PROCESS: "/orderProcess",
+
 };

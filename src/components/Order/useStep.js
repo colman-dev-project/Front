@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ENDPOINTS } from "../../constants/routerPaths";
 
-const useStep = (totalSteps, finalRoute = "/#TODO") => {
+
+const useStep = (totalSteps, finalRoute = ENDPOINTS.HOME) => {
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
 
-  const next = () => {
-    if (activeStep === totalSteps - 1) 
-    {
+  const handleNext = () => {
+    if (activeStep === totalSteps - 1) {
       navigate(finalRoute);
-    } 
-    else 
-    {
-      setActiveStep(prev => prev + 1);
+      return;
     }
+  
+    setActiveStep(prev => prev + 1);
   };
 
-  const back = () => setActiveStep(prev => prev - 1);
+  const handleBack = () => setActiveStep(prev => prev - 1);
 
-  return { activeStep, next, back };
+  return { activeStep, handleNext , handleBack };
 };
 
 

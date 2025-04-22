@@ -2,25 +2,20 @@ export const containerStyle = {
   width: "100%",
 };
 
-export const stepContentBox = {
+export const stepContentBoxStyle  = {
   my: 4,
 };
 
-export const buttonContainer = {
+export const buttonContainerStyle  = {
   display: "flex",
   flexDirection: "row",
   pt: 2,
 };
 
-export const spacer = {
+export const spacerStyle  = {
   flex: "1 1 auto",
 };
 
 export const backButton = {
   mr: 1,
-};
-
-export const completeText = {
-  mt: 2,
-  mb: 1,
 };
