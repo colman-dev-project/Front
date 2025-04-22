@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ENDPOINTS } from "../../constants/routerPaths";
+import { ROUTES } from "../../constants/routerPaths";
 
 
-const useStep = (totalSteps, finalRoute = ENDPOINTS.HOME) => {
+const useStep = (totalSteps, finalRoute = ROUTES.HOME) => {
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
 

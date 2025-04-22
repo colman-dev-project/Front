@@ -3,7 +3,7 @@ import { Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { CustomAppBar, CustomToolbar, NavLinks } from "./Navbar.styled";
 import { capitalize } from "../../utils/string.js";
-import { ENDPOINTS as ROUTER_PATHS } from "../../constants/routerPaths.js";
+import { ROUTES as ROUTER_PATHS } from "../../constants/routerPaths.js";
 
 function Navbar() {
   return (

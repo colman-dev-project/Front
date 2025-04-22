@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ENDPOINTS } from "./constants/routerPaths";
+import { ROUTES } from "./constants/routerPaths";
 import App from "./App";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Home /> },
       { path: "about", element: <About /> },
-      { path: ENDPOINTS.ORDER_PROCESS, element: <OrderProcess /> }
+      { path: ROUTES.ORDER_PROCESS, element: <OrderProcess /> }
 
     ],
   },

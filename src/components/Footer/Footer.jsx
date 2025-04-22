@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Link } from '@mui/material';
 import { FooterContainer, FooterLinks } from './Footer.styled.js';
 import { Link as RouterLink } from 'react-router-dom';
-import { ENDPOINTS as ROUTER_PATHS } from '../../constants/routerPaths.js';
+import { ROUTES as ROUTER_PATHS } from '../../constants/routerPaths.js';
 
 function Footer() {
   return (
