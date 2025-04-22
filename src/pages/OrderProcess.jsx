@@ -1,5 +1,5 @@
 import React from "react";
-import HorizontalLinearStepper from "../components/HorizontalLinearStepper/HorizontalLinearStepper";
+import HorizontalLinearStepper from "../components/Order/Stepper";
 
 function OrderProcess() {
   return (
