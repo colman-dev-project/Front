@@ -1,9 +1,9 @@
 import React from "react";
-import { Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Typography } from "@mui/material";
 import { CustomAppBar, CustomToolbar, NavLinks } from "./Navbar.styled";
 import { capitalize } from "../../utils/string.js";
 import { ROUTES as ROUTER_PATHS } from "../../constants/routerPaths.js";
+import SharedButton from "../shared/button";
 
 function Navbar() {
   return (
@@ -11,12 +11,8 @@ function Navbar() {
       <CustomToolbar>
         <Typography variant="h6">SecondHand Store</Typography>
         <NavLinks>
-          <Button color="inherit" component={Link} to={ROUTER_PATHS.HOME}>
-            {capitalize("home")}
-          </Button>
-          <Button color="inherit" component={Link} to={ROUTER_PATHS.ABOUT}>
-            {capitalize("about")}
-          </Button>
+          <SharedButton color="inherit" to={ROUTER_PATHS.HOME} label={capitalize("home")} />
+          <SharedButton color="inherit" to={ROUTER_PATHS.ABOUT} label={capitalize("about")} />
         </NavLinks>
       </CustomToolbar>
     </CustomAppBar>
