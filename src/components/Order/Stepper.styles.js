@@ -1,10 +1,14 @@
+import { styled } from '@mui/system';
+import Box from '@mui/material/Box';
+
 export const containerStyle = {
   width: "100%",
 };
 
-export const stepContentBoxStyle  = {
-  my: 4,
-};
+export const StyledStepContentBox = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(4),
+  marginBottom: theme.spacing(4),
+}));
 
 export const buttonContainerStyle  = {
   display: "flex",
