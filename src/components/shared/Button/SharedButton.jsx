@@ -1,11 +1,11 @@
 import React from 'react';
-import { DefaultButtonStyle } from './Button.styles';
+import { StyledButton } from './Button.styles';
 
 function SharedButton({ label, style = {}, ...rest }) {
   return (
-    <DefaultButtonStyle sx={style} {...rest}>
+    <StyledButton sx={style} {...rest}>
       {label}
-    </DefaultButtonStyle>
+    </StyledButton>
   );
 }
 
