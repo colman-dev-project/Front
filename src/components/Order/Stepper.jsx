@@ -38,7 +38,8 @@ const steps = [
 export default function HorizontalLinearStepper() {
   const { activeStep, handleNext, handleBack } = useStep(steps.length);
   const isFinalStep = activeStep === steps.length - 1;
-  const nextButtonLabel = activeStep === steps.length - 2 ? UI_TEXT.FINISH : UI_TEXT.NEXT;
+  const nextButtonLabel =
+    activeStep === steps.length - 2 ? UI_TEXT.FINISH : UI_TEXT.NEXT;
 
   return (
     <Box sx={containerStyle}>
@@ -67,10 +68,7 @@ export default function HorizontalLinearStepper() {
             label={UI_TEXT.BACK}
           />
           <Box sx={spacerStyle} />
-          <SharedButton
-            onClick={handleNext}
-            label={nextButtonLabel}
-          />
+          <SharedButton onClick={handleNext} label={nextButtonLabel} />
         </Box>
       )}
     </Box>

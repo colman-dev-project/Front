@@ -1,7 +1,6 @@
-import React from "react";
-import { orderProcessContainerStyle } from "./OrderProcess.styles";
-import HorizontalLinearStepper from "../../components/Order/Stepper";
-
+import React from 'react';
+import { orderProcessContainerStyle } from './OrderProcess.styles';
+import HorizontalLinearStepper from '../../components/Order/Stepper';
 
 function OrderProcess() {
   return (

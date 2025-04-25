@@ -1,12 +1,11 @@
 import React from 'react';
-import Button from '@mui/material/Button';
-import { defaultButtonStyle } from './Button.styles';
+import { DefaultButtonStyle } from './Button.styles';
 
 function SharedButton({ label, style = {}, ...rest }) {
   return (
-    <Button sx={{ ...defaultButtonStyle, ...style }} {...rest}>
+    <DefaultButtonStyle sx={style} {...rest}>
       {label}
-    </Button>
+    </DefaultButtonStyle>
   );
 }
 

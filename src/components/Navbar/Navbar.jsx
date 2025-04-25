@@ -1,10 +1,9 @@
-import React from "react";
-import { Typography } from "@mui/material";
-import { CustomAppBar, CustomToolbar, NavLinks } from "./Navbar.styled";
-import { ROUTES as ROUTER_PATHS } from "../../constants/routerPaths.js";
+import React from 'react';
+import { Typography } from '@mui/material';
+import { CustomAppBar, CustomToolbar, NavLinks } from './Navbar.styled';
+import { ROUTES as ROUTER_PATHS } from '../../constants/routerPaths.js';
 import SharedLinkButton from '../shared/Button/SharedLinkButton.jsx';
 import { UI_TEXT } from '../../constants/text';
-
 
 function Navbar() {
   return (

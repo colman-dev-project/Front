@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import Box from '@mui/material/Box';
 
 export const containerStyle = {
-  width: "100%",
+  width: '100%',
 };
 
 export const StyledStepContentBox = styled(Box)(({ theme }) => ({
@@ -10,14 +10,14 @@ export const StyledStepContentBox = styled(Box)(({ theme }) => ({
   marginBottom: theme.spacing(4),
 }));
 
-export const buttonContainerStyle  = {
-  display: "flex",
-  flexDirection: "row",
+export const buttonContainerStyle = {
+  display: 'flex',
+  flexDirection: 'row',
   pt: 2,
 };
 
-export const spacerStyle  = {
-  flex: "1 1 auto",
+export const spacerStyle = {
+  flex: '1 1 auto',
 };
 
 export const backButton = {
