@@ -2,9 +2,9 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { defaultButtonStyle } from './Button.styles';
 
-function SharedButton({ label, sx = {}, ...rest }) {
+function SharedButton({ label, style = {}, ...rest }) {
   return (
-    <Button sx={{ ...defaultButtonStyle, ...sx }} {...rest}>
+    <Button sx={{ ...defaultButtonStyle, ...style }} {...rest}>
       {label}
     </Button>
   );

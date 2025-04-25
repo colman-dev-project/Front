@@ -1,5 +1,5 @@
 export const defaultButtonStyle = {
-  padding: '8px 16px',
-  borderRadius: '8px',
+  padding: '0.5rem 16px',
+  borderRadius: '0.5rem',
   color: "inherit",
 };
