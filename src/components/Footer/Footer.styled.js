@@ -18,3 +18,8 @@ export const FooterLinks = styled(Box)({
   justifyContent: 'center',
   gap: '1.5rem',
 });
+
+export const footerTextStyle = {
+  marginBottom: '0.2rem',
+};
+
