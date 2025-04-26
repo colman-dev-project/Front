@@ -7,5 +7,4 @@ export const HeroImgBox = styled(Box)(({ theme }) => ({
   height: '20rem',
   borderRadius:'10rem',
   objectFit: 'cover',
-  boxShadow: theme.shadows[3],
 }));
