@@ -1,4 +1,3 @@
 export const orderProcessContainerStyle = {
-    padding: "2rem",
-  };
-  
+  padding: '2rem',
+};

@@ -1,13 +1,13 @@
-import React from "react";
-import { Typography, Container, Box } from "@mui/material";
-import useScrollToTop from "../hooks/useScrollToTop.js";
+import React from 'react';
+import { Typography, Container, Box } from '@mui/material';
+import useScrollToTop from '../hooks/useScrollToTop.js';
 
 function Home() {
   useScrollToTop();
 
   return (
     <Container sx={{ py: 4 }}>
-      <Box sx={{ textAlign: "center" }}>
+      <Box sx={{ textAlign: 'center' }}>
         <Typography variant="h4" gutterBottom>
           Welcome to the Second-Hand Store!
         </Typography>
