@@ -4,12 +4,13 @@ import { FooterContainer, FooterLinks } from './Footer.styled.js';
 import { Link as RouterLink } from 'react-router-dom';
 import { ROUTES as ROUTER_PATHS } from '../../constants/routerPaths.js';
 import SharedTypography from '../shared/Text/SharedText.jsx';
+import { UI_TEXT } from '../../constants/text';
 
 function Footer() {
   return (
     <FooterContainer component="footer">
-      <SharedTypography variant="body2" sx={{ mb: 1 }}>
-        © {new Date().getFullYear()} SecondHand Store
+      <SharedTypography variant="body2" style={{ marginBottom: '0.2rem' }}>
+        © {new Date().getFullYear()} {UI_TEXT.SECOND_HAND_STORE}
       </SharedTypography>
 
       <FooterLinks>
