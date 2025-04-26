@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SharedSelect } from './SharedSelect'; // Adjust the import path
+import { SharedSelect } from './SharedSelect'; 
 
 export const ExamplePage = () => {
   const [pet, setPet] = useState('');

@@ -1,23 +1,36 @@
 import React from 'react';
-import { StyledSelect } from './Select.styles'; // Import StyledSelect
-import { MenuItem } from '@mui/material'; // Import MenuItem from MUI
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown'; // Import MUI icon
+import { StyledSelect } from './Select.styles';
+import { MenuItem } from '@mui/material';
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import { useSelect } from './useSelect'; //hook link
 
-export const SharedSelect = ({
-  options = [],
-  placeholder = 'Select an option...',
-  value,
-  onChange,
-}) => {
+export const SharedSelect = ({ options = [], placeholder = 'Select an option...', value, onChange }) => {
+  const { value: selectedValue, handleChange, options: currentOptions, placeholder: currentPlaceholder } = useSelect(value, options, placeholder);
+
+
+  const handleSelectChange = (event) => {
+    handleChange(event); 
+    if (onChange) {
+      onChange(event.target.value); 
+    }
+  };
+
   return (
     <StyledSelect
-      value={value}
-      onChange={onChange}
+      value={selectedValue} 
+      onChange={handleSelectChange} 
       displayEmpty
       IconComponent={KeyboardArrowDown}
-      renderValue={(selected) => (selected === '' ? placeholder : selected)}
+      renderValue={(selected) => {
+        if (selected === '' || selected === undefined) {
+          return currentPlaceholder; 
+        }
+
+        const selectedOption = currentOptions.find(option => option.value === selected);
+        return selectedOption ? selectedOption.label : currentPlaceholder; 
+      }}
     >
-      {options.map((opt) => (
+      {currentOptions.map((opt) => (
         <MenuItem key={opt.value} value={opt.value}>
           {opt.label}
         </MenuItem>
