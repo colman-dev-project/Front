@@ -2,7 +2,7 @@ import './App.css';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Footer from './components/Footer/Footer.jsx';
-import TestSelect from'./components/shared/Select/TestSelect.jsx';
+import { ExamplePage } from './components/shared/Select/TestSelect.jsx';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <main style={{ minHeight: '80vh', padding: '2rem' }}>
         <Outlet />
-        <TestSelect />
+        <ExamplePage />
       </main>
       <Footer />
     </>

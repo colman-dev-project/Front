@@ -1,21 +1,24 @@
-import * as React from 'react';
-import SharedSelect from './SharedSelect';
+import React, { useState } from 'react';
+import { SharedSelect } from './SharedSelect'; // Adjust the import path
 
-export default function TestSelect() {
+export const ExamplePage = () => {
+  const [pet, setPet] = useState('');
+
   const options = [
-    { value: 'apple', label: 'תפוח' },
-    { value: 'banana', label: 'בננה' },
-    { value: 'orange', label: 'תפוז' },
+    { value: 'dog', label: 'Dog' },
+    { value: 'cat', label: 'Cat' },
+    { value: 'fish', label: 'Fish' },
+    { value: 'bird', label: 'Bird' },
   ];
 
-  const handleSelect = (value) => {
-    console.log('נבחר ערך:', value);
-  };
-
   return (
-    <div style={{ padding: 20 }}>
-      <h1>בדיקה של SharedSelect</h1>
-      <SharedSelect options={options} onSelect={handleSelect} />
+    <div>
+      <SharedSelect
+        options={options}
+        placeholder="Select a pet..."
+        value={pet}
+        onChange={(e) => setPet(e.target.value)}
+      />
     </div>
   );
-}
+};

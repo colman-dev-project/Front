@@ -1,33 +1,27 @@
-import * as React from 'react';
-import { useState } from 'react';
-import Option from '@mui/joy/Option';
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import { StyledSelect } from './Select.styles';
+import React from 'react';
+import { StyledSelect } from './Select.styles'; // Import StyledSelect
+import { MenuItem } from '@mui/material'; // Import MenuItem from MUI
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown'; // Import MUI icon
 
-export default function SharedSelect({ options = [], placeholder = "Select an option…", onSelect }) {
-  const [selected, setSelected] = useState('');
-
-  const handleChange = (event, newValue) => {
-    setSelected(newValue);
-    if (onSelect) {
-      onSelect(newValue);
-    }
-  };
-
-  const safeOptions = Array.isArray(options) ? options : [];
-
+export const SharedSelect = ({
+  options = [],
+  placeholder = 'Select an option...',
+  value,
+  onChange,
+}) => {
   return (
     <StyledSelect
-      placeholder={placeholder}
-      value={selected}
-      onChange={handleChange}
-      indicator={<KeyboardArrowDown />}
+      value={value}
+      onChange={onChange}
+      displayEmpty
+      IconComponent={KeyboardArrowDown}
+      renderValue={(selected) => (selected === '' ? placeholder : selected)}
     >
-      {safeOptions.map((option) => (
-        <Option key={option.value} value={option.value}>
-          {option.label}
-        </Option>
+      {options.map((opt) => (
+        <MenuItem key={opt.value} value={opt.value}>
+          {opt.label}
+        </MenuItem>
       ))}
     </StyledSelect>
   );
-}
+};
