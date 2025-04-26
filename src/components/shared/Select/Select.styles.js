@@ -1,8 +1,10 @@
-import { styled } from '@mui/material/styles'; // Use MUI styled API from @mui/material
-import Select from '@mui/material/Select'; // Use MUI's Select component
+import { styled } from '@mui/material/styles'; 
+import Select from '@mui/material/Select';
+import { DEFAULT_PLACEHOLDER } from '../constants/selectConstants'; // התאימי את הנתיב לפי הצורך
+
 
 export const StyledSelect = styled(Select)(({ theme }) => ({
-  width: 200,
+  width: '12.5rem',
   '& .MuiSelect-indicator': {
     transition: '0.2s',
     '&.Mui-expanded': {
@@ -10,3 +12,4 @@ export const StyledSelect = styled(Select)(({ theme }) => ({
     },
   },
 }));
+

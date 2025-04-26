@@ -5,4 +5,5 @@ export const UI_TEXT = {
   NEXT: 'Next',
   FINISH: 'Finish',
   BACK: 'Back',
+  SELECT_AN_OPTION:'Select an option...',
 };
