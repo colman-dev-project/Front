@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, CardContent, CardActions, Skeleton, Stack } from '@mui/material';
+import { StyledCard, BigStyledCard } from './Product.styles';
 
 const ProductSkeleton = () => (
-  <Card sx={{ maxWidth: 600, m: '0 auto' }}>
+  <BigStyledCard >
     <Skeleton variant="rectangular" height={300} />
 
     <CardContent>
@@ -23,7 +24,7 @@ const ProductSkeleton = () => (
       <Skeleton width="100%" height={16} />
       <Skeleton width="100%" height={16} />
     </CardContent>
-  </Card>
+  </BigStyledCard>
 );
 
 export default ProductSkeleton;

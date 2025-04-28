@@ -13,6 +13,11 @@ import {
   Divider,
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { StyledCard, BigStyledCard , ratingWrapperStyle} from './Product.styles';
+import { SharedImage } from '../shared/Image/SharedImage';
+import SharedTypography from '../shared/Text/SharedText.jsx';
+import { Box } from '@mui/material';
+
 
 const ProductView = ({
   image,
@@ -26,22 +31,24 @@ const ProductView = ({
   onAddToCart,
 }) => {
   return (
-    <Card style={{ maxWidth: 600, margin: '0 auto' }}>
-      <CardMedia component="img" height="300" image={image} alt={name} />
+    <BigStyledCard >
+      <SharedImage  src={image} alt={name} />
 
       <CardContent>
-        <Typography variant="h5">{name}</Typography>
+        <SharedTypography variant="h5">{name}</SharedTypography>
 
-        <Typography variant="body2">{description}</Typography>
+        <SharedTypography variant="body2">{description}</SharedTypography>
 
-        <Typography variant="h6">₪{price}</Typography>
+        <SharedTypography variant="h6">₪{price}</SharedTypography>
 
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Box style={ratingWrapperStyle}>
           <Rating value={rating} readOnly />
-          <Typography variant="body2">({reviewCount} reviews)</Typography>
-        </div>
+          <SharedTypography variant="body2">
+            ({reviewCount} reviews)
+          </SharedTypography>
+        </Box>
 
-        <Typography variant="body2">{lockerLocation}</Typography>
+        <SharedTypography variant="body2">{lockerLocation}</SharedTypography>
       </CardContent>
 
       <CardActions>
@@ -58,7 +65,7 @@ const ProductView = ({
       <Divider />
 
       <CardContent>
-        <Typography variant="subtitle1">Customer Reviews:</Typography>
+        <SharedTypography variant="subtitle1">Customer Reviews:</SharedTypography>
         <List>
           {reviews.map((rev, idx) => (
             <ListItem key={idx}>
@@ -67,7 +74,7 @@ const ProductView = ({
           ))}
         </List>
       </CardContent>
-    </Card>
+    </BigStyledCard>
   );
 };
 

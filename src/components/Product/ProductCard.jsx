@@ -1,32 +1,35 @@
 import React from 'react';
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActionArea,
-  Typography,
-  Rating,
-} from '@mui/material';
+import { CardContent, CardActionArea, Rating } from '@mui/material';
+import { StyledCard } from './Product.styles';
+import { UI_TEXT } from '../../constants/text';
+import SharedTypography from '../shared/Text/SharedText.jsx';
+import { SharedImage } from '../shared/Image/SharedImage.jsx';
 
-const ProductCard = ({ id, image, name, price, rating, onSelect }) => {
+const ProductCard = ({
+  id,
+  image,
+  name,
+  price,
+  rating,
+  onSelect,
+  ...props
+}) => {
   return (
-    <Card sx={{ width: 250 }}>
+    <StyledCard {...props}>
       <CardActionArea onClick={() => onSelect(id)}>
-        <CardMedia component="img" height="160" image={image} alt={name} />
+        <SharedImage src={image} alt={name} />
 
         <CardContent>
-          <Typography variant="subtitle1" fontWeight="bold" noWrap>
-            {name}
-          </Typography>
+          <SharedTypography variant="subtitle1">
+            {UI_TEXT.NAME}
+          </SharedTypography>
 
-          <Typography variant="body2" color="primary">
-            ₪{price}
-          </Typography>
+          <SharedTypography variant="body2">₪{UI_TEXT.PRICE}</SharedTypography>
 
           <Rating value={rating} readOnly size="small" />
         </CardContent>
       </CardActionArea>
-    </Card>
+    </StyledCard>
   );
 };
 

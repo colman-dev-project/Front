@@ -13,11 +13,11 @@ const ProductPage = () => {
     alert('Added to cart');
   };
 
-  return isLoading ? (
-    <ProductSkeleton />
-  ) : (
-    <ProductView {...product} onAddToCart={handleAddToCart} />
-  );
+  if (isLoading) {
+    return <ProductSkeleton />;
+  }
+  
+  return <ProductView {...product} onAddToCart={handleAddToCart} />;
 };
 
 export default ProductPage;
