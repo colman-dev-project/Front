@@ -13,11 +13,16 @@ import {
   Divider,
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { StyledCard, BigStyledCard , ratingWrapperStyle} from './Product.styles';
+import {
+  StyledCard,
+  BigStyledCard,
+  ratingWrapperStyle,
+} from './Product.styled.js';
 import { SharedImage } from '../shared/Image/SharedImage';
 import SharedTypography from '../shared/Text/SharedText.jsx';
+import SharedButton from '../shared/Button/SharedButton.jsx';
 import { Box } from '@mui/material';
-
+import { UI_TEXT } from '../../constants/text.js';
 
 const ProductView = ({
   image,
@@ -28,23 +33,23 @@ const ProductView = ({
   reviewCount,
   lockerLocation,
   reviews,
-  onAddToCart,
+  handleAddToCart,
 }) => {
   return (
-    <BigStyledCard >
-      <SharedImage  src={image} alt={name} />
+    <BigStyledCard>
+      <SharedImage src={image} alt={name} />
 
       <CardContent>
         <SharedTypography variant="h5">{name}</SharedTypography>
 
         <SharedTypography variant="body2">{description}</SharedTypography>
 
-        <SharedTypography variant="h6">₪{price}</SharedTypography>
+        <SharedTypography variant="h6">{UI_TEXT.PRICE(price)}</SharedTypography>
 
         <Box style={ratingWrapperStyle}>
           <Rating value={rating} readOnly />
           <SharedTypography variant="body2">
-            ({reviewCount} reviews)
+            ({reviewCount} {UI_TEXT.REVIEWS})
           </SharedTypography>
         </Box>
 
@@ -52,23 +57,24 @@ const ProductView = ({
       </CardContent>
 
       <CardActions>
-        <Button
+        <SharedButton
           variant="contained"
           fullWidth
           startIcon={<ShoppingCartIcon />}
-          onClick={onAddToCart}
-        >
-          Add to Cart
-        </Button>
+          onClick={handleAddToCart}
+          label={UI_TEXT.ADD_TO_CART}
+        ></SharedButton>
       </CardActions>
 
       <Divider />
 
       <CardContent>
-        <SharedTypography variant="subtitle1">Customer Reviews:</SharedTypography>
+        <SharedTypography variant="subtitle1">
+          Customer Reviews:
+        </SharedTypography>
         <List>
-          {reviews.map((rev, idx) => (
-            <ListItem key={idx}>
+          {reviews.map((rev) => (
+            <ListItem key={rev.id}>
               <ListItemText primary={`${rev.name}: "${rev.text}"`} />
             </ListItem>
           ))}

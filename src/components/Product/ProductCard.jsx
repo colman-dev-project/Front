@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardContent, CardActionArea, Rating } from '@mui/material';
-import { StyledCard } from './Product.styles';
+import { StyledCard } from './Product.styled.js';
 import { UI_TEXT } from '../../constants/text';
 import SharedTypography from '../shared/Text/SharedText.jsx';
 import { SharedImage } from '../shared/Image/SharedImage.jsx';
@@ -24,7 +24,9 @@ const ProductCard = ({
             {UI_TEXT.NAME}
           </SharedTypography>
 
-          <SharedTypography variant="body2">₪{UI_TEXT.PRICE}</SharedTypography>
+          <SharedTypography variant="body2">
+            {UI_TEXT.PRICE(price)}
+          </SharedTypography>
 
           <Rating value={rating} readOnly size="small" />
         </CardContent>

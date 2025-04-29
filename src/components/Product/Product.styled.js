@@ -6,7 +6,13 @@ import { display } from '@mui/system';
 export const StyledCard = styled(Card)(({ theme }) => ({
   width: '15rem',
   height: '17rem',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  '&:hover': {
+    transform: 'translateY(-5px)', 
+    boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)', 
+  },
 }));
+
 
 export const SharedImage = {
   width: '18rem',

@@ -6,8 +6,7 @@ const StyledImg = styled('img')({
     objectFit: 'contain',
     borderRadius: '0.75rem',
     display: 'block',       
-    marginLeft: 'auto',    
-    marginRight: 'auto',
+    margin: 'auto',
   });
   
 

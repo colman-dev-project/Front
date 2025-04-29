@@ -6,7 +6,9 @@ export const UI_TEXT = {
   NEXT: 'Next',
   FINISH: 'Finish',
   BACK: 'Back',
-  PRICE: 'Price',
+  PRICE: (amount) => `₪${amount}`,
   NAME: 'Name',
   FAILED_TO_LOAD_PRODUCTS: 'Failed to load products',
+  REVIEWS: 'reviews',
+  ADD_TO_CART: 'Add to Cart',
 };
