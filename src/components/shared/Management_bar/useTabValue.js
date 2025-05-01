@@ -1,4 +1,3 @@
-import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 
 export function useTabValue() {
@@ -11,12 +10,5 @@ export function useTabValue() {
   return {
     value,
     handleChange,
-  };
-}
-
-export function useTransitionDuration(theme) {
-  return {
-    enter: theme.transitions.duration.enteringScreen,
-    exit: theme.transitions.duration.leavingScreen,
   };
 }

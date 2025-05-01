@@ -1,9 +1,17 @@
 export const UI_TEXT = {
-  SECOND_HAND_STORE: "SecondHand Store",
+  SECOND_HAND_STORE: 'SecondHand Store',
   HOME: 'Home',
   ABOUT: 'About',
   GO_HOME: 'Go Home',
   NEXT: 'Next',
   FINISH: 'Finish',
   BACK: 'Back',
+  MANAGER: 'Manager',
+  CUSTOMER: 'Customer',
+  ORDER: 'Orders',
+  PRODUCTS: 'Products',
+  CUSTOMERS: 'Customers',
+  DASHBOARD: 'Dashboard',
+  PROFILE: 'Profile',
+  LOCKERS: 'Lockers',
 };
