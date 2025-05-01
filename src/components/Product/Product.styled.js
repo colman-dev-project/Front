@@ -8,16 +8,12 @@ export const StyledCard = styled(Card)(({ theme }) => ({
   height: '17rem',
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   '&:hover': {
-    transform: 'translateY(-5px)', 
-    boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)', 
+    transform: 'translateY(-5px)',
+
+    // TODO: replace this shadow with the shadow in the theme. (right now the shadow doesnt appaer in the theme).
+    boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
   },
 }));
-
-
-export const SharedImage = {
-  width: '18rem',
-  height: '12rem',
-};
 
 export const SharedTypography = {
   color: theme.palette.text.primary,

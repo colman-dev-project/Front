@@ -23,6 +23,7 @@ import SharedTypography from '../shared/Text/SharedText.jsx';
 import SharedButton from '../shared/Button/SharedButton.jsx';
 import { Box } from '@mui/material';
 import { UI_TEXT } from '../../constants/text.js';
+import { convertToShekels } from '../../utils/converting.js';
 
 const ProductView = ({
   image,
@@ -44,7 +45,7 @@ const ProductView = ({
 
         <SharedTypography variant="body2">{description}</SharedTypography>
 
-        <SharedTypography variant="h6">{UI_TEXT.PRICE(price)}</SharedTypography>
+        <SharedTypography variant="h6"> {convertToShekels(price)}</SharedTypography>
 
         <Box style={ratingWrapperStyle}>
           <Rating value={rating} readOnly />

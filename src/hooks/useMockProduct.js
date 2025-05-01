@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import item1Image from '../assets/item1.jpg';
 
 const LOADING_DELAY_MS = 1200;
 
@@ -10,7 +9,7 @@ export const useProduct = (id) => {
 
   const mockProduct = {
     id,
-    image: item1Image,
+    image: null,
     name: `Product #${id}`,
     description:
       'High-quality short description. Ready for pickup within 3 days.',

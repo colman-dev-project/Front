@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
-import item1Image from '../assets/item1.jpg';
 
 const MOCK_PRODUCTS = [
   {
     id: 1,
-    image: item1Image,
+    image: null,
     name: 'Phone Case',
     price: 129,
     rating: 4.5,
   },
   {
     id: 2,
-    image: item1Image,
+    image: null,
     name: 'Thermos',
     price: 89,
     rating: 4,

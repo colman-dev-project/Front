@@ -1,18 +1,19 @@
 import { styled } from '@mui/material/styles';
 import { Skeleton } from '@mui/material';
+import { pxToRem } from '../../utils/converting';
 
-const createSkeletonVariant = (widthRem, heightRem) =>
+const createSkeletonVariant = (widthPx, heightPx) =>
   styled(Skeleton)(() => ({
-    width: `${widthRem}rem`,
-    height: `${heightRem}rem`,
+    width: pxToRem(widthPx),
+    height: pxToRem(heightPx),
     borderRadius: '0.25rem',
   }));
 
-export const SkeletonRect300 = createSkeletonVariant(100, 18.75);
-export const Skeleton80 = createSkeletonVariant(48, 2);           
-export const Skeleton100 = createSkeletonVariant(60, 1.25);
-export const Skeleton60 = createSkeletonVariant(36, 1.25);
-export const Skeleton40 = createSkeletonVariant(24, 1.25);
-export const SkeletonButton = createSkeletonVariant(60, 2.25);
-export const SkeletonSubtitle = createSkeletonVariant(24, 1.5);
-export const SkeletonLine = createSkeletonVariant(60, 1);
+export const SkeletonCardImage = createSkeletonVariant(1600, 300);
+export const SkeletonTitle = createSkeletonVariant(768, 32);
+export const SkeletonBodyText = createSkeletonVariant(960, 20);
+export const SkeletonSmallText = createSkeletonVariant(576, 20);
+export const SkeletonLabel = createSkeletonVariant(384, 20);
+export const SkeletonCTAButton = createSkeletonVariant(960, 36);
+export const SkeletonSubtitle = createSkeletonVariant(384, 24);
+export const SkeletonLine = createSkeletonVariant(960, 16);

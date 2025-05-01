@@ -4,6 +4,7 @@ import { StyledCard } from './Product.styled.js';
 import { UI_TEXT } from '../../constants/text';
 import SharedTypography from '../shared/Text/SharedText.jsx';
 import { SharedImage } from '../shared/Image/SharedImage.jsx';
+import { convertToShekels } from '../../utils/converting.js';
 
 const ProductCard = ({
   id,
@@ -25,7 +26,7 @@ const ProductCard = ({
           </SharedTypography>
 
           <SharedTypography variant="body2">
-            {UI_TEXT.PRICE(price)}
+            {convertToShekels(price)}
           </SharedTypography>
 
           <Rating value={rating} readOnly size="small" />

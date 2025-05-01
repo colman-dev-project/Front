@@ -2,37 +2,34 @@ import React from 'react';
 import { CardContent, CardActions, Stack } from '@mui/material';
 import { BigStyledCard } from './Product.styled';
 import {
-  SkeletonRect300,
-  Skeleton80,
-  Skeleton100,
-  Skeleton60,
-  Skeleton40,
-  SkeletonButton,
-  SkeletonSubtitle,
-  SkeletonLine,
+  SkeletonCardImage,     
+  SkeletonTitle,          
+  SkeletonSubtitle,       
+  SkeletonCTAButton,      
+  SkeletonLine,           
+  SkeletonBodyText,     
 } from './Skeleton.styled';
 
 const ProductSkeleton = () => (
   <BigStyledCard>
-    <SkeletonRect300 variant="rectangular" />
+    <SkeletonCardImage variant="rectangular" /> 
 
     <CardContent>
       <Stack spacing={1}>
-        <Skeleton80 />
-        <Skeleton100 />
-        <Skeleton60 />
-        <Skeleton40 />
+        <SkeletonTitle />          
+        <SkeletonBodyText />        
+        <SkeletonLine />         
       </Stack>
     </CardContent>
 
     <CardActions>
-      <SkeletonButton variant="rectangular" />
+      <SkeletonCTAButton variant="rectangular" />
     </CardActions>
 
     <CardContent>
-      <SkeletonSubtitle />
-      <SkeletonLine />
-      <SkeletonLine />
+      <SkeletonSubtitle />        
+      <SkeletonLine />             
+      <SkeletonLine />      
     </CardContent>
   </BigStyledCard>
 );
