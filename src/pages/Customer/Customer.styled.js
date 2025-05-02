@@ -2,6 +2,6 @@ export const managementContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
     minHeight: '100vh',
-    padding: '16px',
+    padding: '1rem',
   };
   

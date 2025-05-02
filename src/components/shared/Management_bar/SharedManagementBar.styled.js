@@ -10,7 +10,6 @@ export const containerOuterBox = {
 export const StyledAppBar = styled(AppBar)({
   position: 'static',
   color: 'default',
-  // TODO: Change this According to the style
   '& .MuiTab-root': {
     backgroundColor: theme.palette.background.default,
   },
