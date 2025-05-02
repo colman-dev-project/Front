@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box, Tabs, Tab } from '@mui/material';
-import { useTabValue } from './useTabValue';
+import { useState } from 'react';
 import {
   tabPanelStyle,
   containerOuterBox,
@@ -41,10 +41,13 @@ function getAccessibilityPropsForTab(index) {
 }
 
 export default function FloatingActionButtonZoom({ role }) {
-  const { value, handleChange } = useTabValue();
+  const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   const isManager = role === UI_TEXT.MANAGER;
 
-  const managerArray = [
+  const managerTabs = [
     { label: UI_TEXT.ORDER, component: <ManagerOrders /> },
     { label: UI_TEXT.PRODUCTS, component: <ManagerProducts /> },
     { label: UI_TEXT.CUSTOMERS, component: <ManagerCustomers /> },
@@ -52,12 +55,12 @@ export default function FloatingActionButtonZoom({ role }) {
     { label: UI_TEXT.DASHBOARD, component: <ManagerDashboard /> },
   ];
 
-  const nonManagerArray = [
+  const customerTabs = [
     { label: UI_TEXT.ORDER, component: <UserOrders /> },
     { label: UI_TEXT.PRODUCTS, component: <UserProducts /> },
     { label: UI_TEXT.PROFILE, component: <UserProfile /> },
   ];
-  const tabs = isManager ? managerArray : nonManagerArray;
+  const tabs = isManager ? managerTabs : customerTabs;
 
   return (
     <Box style={containerOuterBox}>
