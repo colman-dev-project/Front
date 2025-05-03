@@ -21,7 +21,7 @@ const ProductCard = ({
         <SharedImage src={image} alt={name} />
 
         <CardContent>
-          <SharedTypography variant="subtitle1">
+          <SharedTypography variant={UI_TEXT.SUBTITLE1_VARIANT}>
             {UI_TEXT.NAME}
           </SharedTypography>
 

@@ -19,4 +19,5 @@ export const UI_TEXT = {
   DASHBOARD: 'Dashboard',
   PROFILE: 'Profile',
   LOCKERS: 'Lockers',
+  SUBTITLE1_VARIANT: 'subtitle1',
 };
