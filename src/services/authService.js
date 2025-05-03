@@ -1,5 +1,11 @@
 import axios from '../api/axios';
-import { AUTH_ENDPOINTS, AUTH_RESPONSE_KEYS, AUTH_ERRORS } from '../constants/auth.constants';
+import {
+  AUTH_ENDPOINTS,
+  AUTH_RESPONSE_KEYS,
+  AUTH_ERRORS,
+  STORAGE_KEYS,
+} from '../constants/auth.constants';
+import { HTTP_STATUS } from '../constants/http.constants';
 
 const login = async (credentials) => {
   try {
@@ -12,10 +18,21 @@ const login = async (credentials) => {
       throw new Error(AUTH_ERRORS.INVALID_LOGIN_RESPONSE);
     }
 
+    localStorage.setItem(STORAGE_KEYS.TOKEN, token);
     return { token, user };
   } catch (error) {
-    console.error('Login error:', error);
-    throw error;
+    const status = error.response?.status;
+    const message = error.response?.data?.message;
+
+    if (status === HTTP_STATUS.UNAUTHORIZED) {
+      throw new Error(AUTH_ERRORS.UNAUTHORIZED_LOGIN);
+    }
+
+    if (message) {
+      throw new Error(message);
+    }
+
+    throw new Error(AUTH_ERRORS.GENERAL_LOGIN_ERROR);
   }
 };
 
@@ -30,8 +47,18 @@ const logout = async () => {
 
     return response.data;
   } catch (error) {
-    console.error('Logout error:', error);
-    throw error;
+    const status = error.response?.status;
+    const message = error.response?.data?.message;
+
+    if (status === HTTP_STATUS.UNAUTHORIZED) {
+      throw new Error(AUTH_ERRORS.UNAUTHORIZED_LOGOUT);
+    }
+
+    if (message) {
+      throw new Error(message);
+    }
+
+    throw new Error(AUTH_ERRORS.GENERAL_LOGOUT_ERROR);
   }
 };
 

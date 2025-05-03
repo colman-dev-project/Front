@@ -12,6 +12,10 @@ export const AUTH_RESPONSE_KEYS = {
 export const AUTH_ERRORS = {
   INVALID_LOGIN_RESPONSE: 'Invalid login response structure',
   LOGOUT_FAILED: 'Logout failed',
+  GENERAL_LOGIN_ERROR: 'General login error',
+  GENERAL_LOGOUT_ERROR: 'General logout error',
+  UNAUTHORIZED_LOGIN: 'Invalid username or password',
+  UNAUTHORIZED_LOGOUT: 'User is not logged in',
 };
 
 export const STORAGE_KEYS = {
