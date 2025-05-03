@@ -9,4 +9,5 @@ export const ROUTES = {
   ORDER_PROCESS: '/orderProcess',
   MANAGE_PAGE: '/managerPage',
   CUSTOMER_PAGE: '/customerPage',
+  PRODUCT_DETAILS: '/products/:id',
 };

@@ -6,6 +6,11 @@ export const UI_TEXT = {
   NEXT: 'Next',
   FINISH: 'Finish',
   BACK: 'Back',
+  PRICE: 'Price',
+  NAME: 'Name',
+  FAILED_TO_LOAD_PRODUCTS: 'Failed to load products',
+  REVIEWS: 'reviews',
+  ADD_TO_CART: 'Add to Cart',
   MANAGER: 'Manager',
   CUSTOMER: 'Customer',
   ORDER: 'Orders',
@@ -14,4 +19,5 @@ export const UI_TEXT = {
   DASHBOARD: 'Dashboard',
   PROFILE: 'Profile',
   LOCKERS: 'Lockers',
+  SUBTITLE1_VARIANT: 'subtitle1',
 };
