@@ -25,6 +25,9 @@ const theme = createTheme({
       fontWeight: 600,
     },
   },
+  customShadows: {
+    main: '0 0.625rem 1.25rem rgba(0, 0, 0, 0.2)',
+  },
 });
 
 export default theme;
