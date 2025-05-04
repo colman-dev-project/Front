@@ -1,9 +1,5 @@
 import * as React from 'react';
 import {
-  defaultColumns,
-  defaultSpacing,
-  defaultItemSize,
-  defaultStyle,
   StyledBox,
   StyledGrid,
   StyledItem
