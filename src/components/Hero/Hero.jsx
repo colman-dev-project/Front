@@ -7,7 +7,7 @@ import { UI_TEXT } from '../../constants/text.js';
 
 const Hero = () => {
     return (
-        <div>
+        <>
             <SharedTypography variant="h4" gutterBottom>
             {UI_TEXT.WELCOME_TO_THE_SECOND_HAND_STORE}
             </SharedTypography >
@@ -22,7 +22,7 @@ const Hero = () => {
                 Here you can browse, post, and buy second-hand products easily and
                 conveniently.
             </SharedTypography >
-        </div>
+        </>
     );
 };
 
