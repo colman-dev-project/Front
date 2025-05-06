@@ -16,29 +16,29 @@ const renderSelectValue = (selected, currentOptions, currentPlaceholder) => {
   return selectedOption ? selectedOption.label : currentPlaceholder;
 };
 
-export const SharedSelect = ({ options = [], placeholder = UI_TEXT.SELECT_AN_OPTION, value, onChange }) => {
-  const { value: selectedValue, handleChange, options: currentOptions, placeholder: currentPlaceholder } = useSelect(value, options, placeholder);
+export const SharedSelect = ({ currentOptions = [], currentPlaceholder = UI_TEXT.SELECT_AN_OPTION, value, onChange }) => {
+  const { value , handleChange, currentOptions,currentPlaceholder} = 
+  useSelect(value, currentOptions, currentPlaceholder);
 
   const handleSelectChange = (event) => {
     handleChange(event); 
-    if (onChange) {
       onChange(event.target.value); 
-    }
   };
 
   return (
     <StyledSelect
-      value={selectedValue}
+      value={value}
       onChange={handleSelectChange}
       displayEmpty
       IconComponent={KeyboardArrowDown}
       renderValue={(selected) => renderSelectValue(selected, currentOptions, currentPlaceholder)}
     >
-      {currentOptions.map((opt) => (
-        <MenuItem key={opt.value} value={opt.value}>
+      {currentOptions.map((opt, index) => (
+        //TODO give id based key key={_id}
+        <MenuItem key={`${opt.value}-${index}`} value={opt.value}>
           {opt.label}
         </MenuItem>
       ))}
-    </StyledSelect>
+</StyledSelect>
   );
 };

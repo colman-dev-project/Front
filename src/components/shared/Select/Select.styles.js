@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles'; 
 import Select from '@mui/material/Select';
-import { DEFAULT_PLACEHOLDER } from '../constants/selectConstants'; // התאימי את הנתיב לפי הצורך
+import { DEFAULT_PLACEHOLDER } from '../constants/selectConstants'; 
 
 
 export const StyledSelect = styled(Select)(({ theme }) => ({

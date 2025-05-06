@@ -7,4 +7,7 @@ export const ROUTES = {
   USERS: '/users',
   LOGIN: '/auth/login',
   ORDER_PROCESS: '/orderProcess',
+  MANAGE_PAGE: '/managerPage',
+  CUSTOMER_PAGE: '/customerPage',
+  PRODUCT_DETAILS: '/products/:id',
 };
