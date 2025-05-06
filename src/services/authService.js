@@ -3,9 +3,10 @@ import {
   AUTH_ENDPOINTS,
   AUTH_RESPONSE_KEYS,
   AUTH_ERRORS,
-  STORAGE_KEYS,
 } from '../constants/auth.constants';
-import { HTTP_STATUS } from '../constants/http.constants';
+import { StatusCodes } from 'http-status-codes';
+import storageService from './storageService';
+import createError from 'http-errors';
 
 const login = async (credentials) => {
   try {
@@ -15,24 +16,24 @@ const login = async (credentials) => {
     const user = response.data?.[AUTH_RESPONSE_KEYS.USER];
 
     if (!token || !user) {
-      throw new Error(AUTH_ERRORS.INVALID_LOGIN_RESPONSE);
+      throw createError(500, AUTH_ERRORS.INVALID_LOGIN_RESPONSE);
     }
 
-    localStorage.setItem(STORAGE_KEYS.TOKEN, token);
+    storageService.setToken(token);
     return { token, user };
   } catch (error) {
     const status = error.response?.status;
     const message = error.response?.data?.message;
 
-    if (status === HTTP_STATUS.UNAUTHORIZED) {
-      throw new Error(AUTH_ERRORS.UNAUTHORIZED_LOGIN);
+    if (status === StatusCodes.UNAUTHORIZED) {
+      throw createError(StatusCodes.UNAUTHORIZED, AUTH_ERRORS.UNAUTHORIZED_LOGIN);
     }
 
     if (message) {
-      throw new Error(message);
+      throw createError(status || 500, message);
     }
 
-    throw new Error(AUTH_ERRORS.GENERAL_LOGIN_ERROR);
+    throw createError(500, AUTH_ERRORS.GENERAL_LOGOUT_ERROR);
   }
 };
 
@@ -42,7 +43,7 @@ const logout = async () => {
 
     const success = response.data?.[AUTH_RESPONSE_KEYS.SUCCESS];
     if (!success) {
-      throw new Error(AUTH_ERRORS.LOGOUT_FAILED);
+      throw createError(500, AUTH_ERRORS.LOGOUT_FAILED);
     }
 
     return response.data;
@@ -50,15 +51,15 @@ const logout = async () => {
     const status = error.response?.status;
     const message = error.response?.data?.message;
 
-    if (status === HTTP_STATUS.UNAUTHORIZED) {
-      throw new Error(AUTH_ERRORS.UNAUTHORIZED_LOGOUT);
+    if (status === StatusCodes.UNAUTHORIZED) {
+      throw createError(StatusCodes.UNAUTHORIZED, AUTH_ERRORS.UNAUTHORIZED_LOGOUT);
     }
 
     if (message) {
-      throw new Error(message);
+      throw createError(status || 500, message);
     }
 
-    throw new Error(AUTH_ERRORS.GENERAL_LOGOUT_ERROR);
+    throw createError(500, AUTH_ERRORS.GENERAL_LOGOUT_ERROR);
   }
 };
 

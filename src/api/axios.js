@@ -1,12 +1,13 @@
 import { createAxiosInstance } from './axiosInstanceFactory';
-import { STORAGE_KEYS, ROUTES } from '../constants/auth.constants';
+import { ROUTES } from '../constants/auth.constants';
+import storageService from '../services/storageService';
 
-const getToken = () => localStorage.getItem(STORAGE_KEYS.TOKEN);
+const getToken = () => storageService.getToken();
 
 const onUnauthorized = () => {
-  localStorage.removeItem(STORAGE_KEYS.TOKEN);
+  storageService.removeToken();
   window.location.href = ROUTES.LOGIN;
-};
+  };
 
 const axiosInstance = createAxiosInstance({ getToken, onUnauthorized });
 
