@@ -20,5 +20,5 @@ export const UI_TEXT = {
   PROFILE: 'Profile',
   LOCKERS: 'Lockers',
   SUBTITLE1_VARIANT: 'subtitle1',
-  WELCOME_TO_THE_SECOND_HAND_STORE: 'Welcome To The Second Hand Store!',
+  SELECT_AN_OPTION:'Select an option...',
 };
