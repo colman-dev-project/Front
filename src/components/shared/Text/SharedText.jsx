@@ -6,6 +6,7 @@ const SharedTypography = ({ variant = 'body1', children, style = {}, ...rest }) 
     <StyledText variant={variant} sx={style} {...rest}>
       {children}
     </StyledText>
+    
   );
 };
 
