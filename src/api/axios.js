@@ -1,11 +1,9 @@
 import { createAxiosInstance } from './axiosInstanceFactory';
 import { ROUTES } from '../constants/auth.constants';
-import storageService from '../services/storageService';
-
-const getToken = () => storageService.getToken();
+import { getToken, removeToken } from '../services/authStorageService';
 
 const onUnauthorized = () => {
-  storageService.removeToken();
+  removeToken();
   window.location.href = ROUTES.LOGIN;
   };
 

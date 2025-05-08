@@ -5,7 +5,7 @@ import {
   AUTH_ERRORS,
 } from '../constants/auth.constants';
 import { StatusCodes } from 'http-status-codes';
-import storageService from './storageService';
+import { setToken } from './authStorageService';
 import createError from 'http-errors';
 
 const login = async (credentials) => {
@@ -19,7 +19,7 @@ const login = async (credentials) => {
       throw createError(500, AUTH_ERRORS.INVALID_LOGIN_RESPONSE);
     }
 
-    storageService.setToken(token);
+    setToken(token);
     return { token, user };
   } catch (error) {
     const status = error.response?.status;
