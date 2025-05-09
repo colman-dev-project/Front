@@ -6,3 +6,4 @@ export const StyledButton = styled(Button)(({}) => ({
   borderRadius: '0.5rem',
   color: 'inherit',
 }));
+
