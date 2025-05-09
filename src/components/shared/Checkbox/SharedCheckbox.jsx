@@ -1,23 +1,23 @@
-import React from 'react';
-import { StyledCheckbox } from './checkbox.styles';
-import useCheckbox from './useCheckbox';
+import React, { useState } from 'react';
+import { StyledCheckbox, StyledLabel } from './checkbox.styles.js';
 
 export default function SharedCheckbox({
   label = '',
   initialChecked = false,
   onChange = () => {},
 }) {
-  const { checked, toggle } = useCheckbox(initialChecked);
+  const [checked, setChecked] = useState(initialChecked);
 
   const handleChange = (event) => {
-    toggle();
-    onChange(event.target.checked);
+    const newValue = event.target.checked;
+    setChecked(newValue);
+    onChange(newValue);
   };
 
   return (
-    <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+    <StyledLabel>
       <StyledCheckbox checked={checked} onChange={handleChange} />
       {label}
-    </label>
+    </StyledLabel>
   );
 }

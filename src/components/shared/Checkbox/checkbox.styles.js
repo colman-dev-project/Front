@@ -7,3 +7,9 @@ export const StyledCheckbox = styled(Checkbox)(({ theme }) => ({
     color: theme.palette.secondary.main,
   },
 }));
+
+export const StyledLabel = styled('label')({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 8,
+});
