@@ -10,7 +10,7 @@ function SharedGrid({
   columns = defaultColumns,
   spacing = defaultSpacing,
   itemSize = defaultItemSize,
-  style = defaultStyle,
+  style = {},
   ...rest
 }) {
   return (
