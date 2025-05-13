@@ -1,15 +1,18 @@
-import React from 'react';
-import { StyledRating } from './Ranking.styles';
-import useRanking from './useRanking';
+import React, { useState } from 'react';
+import { StyledRating, RatingWrapper } from './Ranking.styles';
+
+const DEFAULT_INITIAL_RANKING = 0;
+const DEFAULT_MAX_RANKING = 5;
+const RANKING_INPUT_NAME = 'shared-ranking';
 
 export default function SharedRanking({
   label = '',
-  initialValue = 0,
-  max = 5,
+  initialValue = DEFAULT_INITIAL_RANKING,
+  max = DEFAULT_MAX_RANKING,
   onChange = () => {},
   readOnly = false,
 }) {
-  const { value, setValue } = useRanking(initialValue);
+  const [value, setValue] = useState(initialValue);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -17,15 +20,15 @@ export default function SharedRanking({
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+    <RatingWrapper>
       {label && <span>{label}</span>}
       <StyledRating
-        name="shared-ranking"
+        name={RANKING_INPUT_NAME}
         value={value}
         onChange={handleChange}
         max={max}
         readOnly={readOnly}
       />
-    </div>
+    </RatingWrapper>
   );
 }
