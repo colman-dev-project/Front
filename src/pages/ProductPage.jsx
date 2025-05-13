@@ -11,20 +11,15 @@ const ProductPage = () => {
 
   const [AddToCart] = useAddToCartMutation();
 
-  // const handleAddToCart = () => {
-  //   // TODO: Connect to backend or dispatch to Redux in the future
-  //   alert('Added to cart');
-  // };
-
   const handleAddToCart = async () => {
     try {
-      await AddToCart();
+      await AddToCart(product);
       console.log('Add to Cart Success');
     } catch (err) {
       console.error('Failed to add to cart:', err);
     }
   };
-  
+
   if (isLoading) {
     return <ProductSkeleton />;
   }
