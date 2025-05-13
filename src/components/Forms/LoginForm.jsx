@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import SharedButton from "../shared/Button/SharedButton";
-import SharedGrid from "../shared/SharedGrid";
+import SharedGrid from "../shared/Grid/SharedGrid";
 import { LOGIN_TEXT } from "../../constants/text"; // התאמת נתיב
 
 const loginSchema = yup.object({

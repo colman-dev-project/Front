@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  spacing: 8,
   palette: {
     background: {
       default: "#f5f5f5",
@@ -24,6 +25,9 @@ const theme = createTheme({
     h6: {
       fontWeight: 600,
     },
+  },
+  customShadows: {
+    main: '0 0.625rem 1.25rem rgba(0, 0, 0, 0.2)',
   },
 });
 
