@@ -1,27 +1,22 @@
 import React from "react";
-import {
-  Box,
-  TextField,
-  Typography,
-  Paper,
-  Stack,
-} from "@mui/material";
+import { Box, TextField, Paper, Stack } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import SharedButton from "../shared/SharedButton";
 import SharedGrid from "../shared/SharedGrid";
+import { SIGNUP_TEXT } from "../../constants/text"; // התאמת נתיב
 
 const signupSchema = yup.object({
-  email: yup.string().email("Invalid email address").required("Email is required"),
+  email: yup.string().email(SIGNUP_TEXT.invalidEmail).required(SIGNUP_TEXT.emailRequired),
   password: yup
     .string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
+    .min(6, SIGNUP_TEXT.passwordMin)
+    .required(SIGNUP_TEXT.passwordRequired),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password")], "Passwords must match")
-    .required("Please confirm your password"),
+    .oneOf([yup.ref("password")], SIGNUP_TEXT.passwordMismatch)
+    .required(SIGNUP_TEXT.confirmPasswordRequired),
 });
 
 export default function SignupForm({ onSubmit }) {
@@ -34,22 +29,21 @@ export default function SignupForm({ onSubmit }) {
   return (
     <SharedGrid>
       <Paper elevation={3} sx={{ p: 4, maxWidth: 400, mx: "auto" }}>
-        <Typography variant="h5" mb={3} align="center">
-          Sign Up
-        </Typography>
+        <Box mb={3} textAlign="center">
+          <h2>{SIGNUP_TEXT.title}</h2>
+        </Box>
         <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
           <Stack spacing={2}>
             <TextField
-              label="Email"
+              label={SIGNUP_TEXT.emailLabel}
               fullWidth
               variant="outlined"
               {...register("email")}
               error={!!errors.email}
               helperText={errors.email?.message}
             />
-
             <TextField
-              label="Password"
+              label={SIGNUP_TEXT.passwordLabel}
               type="password"
               fullWidth
               variant="outlined"
@@ -57,9 +51,8 @@ export default function SignupForm({ onSubmit }) {
               error={!!errors.password}
               helperText={errors.password?.message}
             />
-
             <TextField
-              label="Confirm Password"
+              label={SIGNUP_TEXT.confirmPasswordLabel}
               type="password"
               fullWidth
               variant="outlined"
@@ -67,7 +60,6 @@ export default function SignupForm({ onSubmit }) {
               error={!!errors.confirmPassword}
               helperText={errors.confirmPassword?.message}
             />
-
             <SharedButton
               type="submit"
               variant="contained"
@@ -75,7 +67,7 @@ export default function SignupForm({ onSubmit }) {
               disabled={isSubmitting}
               fullWidth
             >
-              Sign Up
+              {SIGNUP_TEXT.submit}
             </SharedButton>
           </Stack>
         </Box>

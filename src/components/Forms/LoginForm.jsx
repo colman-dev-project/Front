@@ -1,20 +1,15 @@
 import React from "react";
-import {
-  Box,
-  TextField,
-  Typography,
-  Paper,
-  Stack,
-} from "@mui/material";
+import { Box, TextField, Paper, Stack } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import SharedButton from "../shared/Button/SharedButton";
 import SharedGrid from "../shared/SharedGrid";
+import { LOGIN_TEXT } from "../../constants/text"; // התאמת נתיב
 
 const loginSchema = yup.object({
-  email: yup.string().email("Invalid email address").required("Email is required"),
-  password: yup.string().required("Password is required"),
+  email: yup.string().email(LOGIN_TEXT.invalidEmail).required(LOGIN_TEXT.emailRequired),
+  password: yup.string().required(LOGIN_TEXT.passwordRequired),
 });
 
 export default function LoginForm({ onSubmit }) {
@@ -27,22 +22,21 @@ export default function LoginForm({ onSubmit }) {
   return (
     <SharedGrid>
       <Paper elevation={3} sx={{ p: 4, maxWidth: 400, mx: "auto" }}>
-        <Typography variant="h5" mb={3} align="center">
-          Login
-        </Typography>
+        <Box mb={3} textAlign="center">
+          <h2>{LOGIN_TEXT.title}</h2>
+        </Box>
         <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
           <Stack spacing={2}>
             <TextField
-              label="Email"
+              label={LOGIN_TEXT.emailLabel}
               fullWidth
               variant="outlined"
               {...register("email")}
               error={!!errors.email}
               helperText={errors.email?.message}
             />
-
             <TextField
-              label="Password"
+              label={LOGIN_TEXT.passwordLabel}
               type="password"
               fullWidth
               variant="outlined"
@@ -50,7 +44,6 @@ export default function LoginForm({ onSubmit }) {
               error={!!errors.password}
               helperText={errors.password?.message}
             />
-
             <SharedButton
               type="submit"
               variant="contained"
@@ -58,7 +51,7 @@ export default function LoginForm({ onSubmit }) {
               disabled={isSubmitting}
               fullWidth
             >
-              Login
+              {LOGIN_TEXT.submit}
             </SharedButton>
           </Stack>
         </Box>
