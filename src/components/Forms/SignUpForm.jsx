@@ -1,11 +1,12 @@
 import React from "react";
-import { Box, TextField, Paper, Stack } from "@mui/material";
+import { TextField, Stack } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import SharedButton from "../shared/SharedButton";
 import SharedGrid from "../shared/SharedGrid";
-import { SIGNUP_TEXT } from "../../constants/text"; // התאמת נתיב
+import { SIGNUP_TEXT } from "../../constants/text";
+import { StyledPaper, TitleWrapper, FormWrapper } from "./Form.styled";
 
 const signupSchema = yup.object({
   email: yup.string().email(SIGNUP_TEXT.invalidEmail).required(SIGNUP_TEXT.emailRequired),
@@ -28,11 +29,11 @@ export default function SignupForm({ onSubmit }) {
 
   return (
     <SharedGrid>
-      <Paper elevation={3} sx={{ p: 4, maxWidth: 400, mx: "auto" }}>
-        <Box mb={3} textAlign="center">
+      <StyledPaper elevation={3}>
+        <TitleWrapper>
           <h2>{SIGNUP_TEXT.title}</h2>
-        </Box>
-        <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+        </TitleWrapper>
+        <FormWrapper component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
           <Stack spacing={2}>
             <TextField
               label={SIGNUP_TEXT.emailLabel}
@@ -70,8 +71,8 @@ export default function SignupForm({ onSubmit }) {
               {SIGNUP_TEXT.submit}
             </SharedButton>
           </Stack>
-        </Box>
-      </Paper>
+        </FormWrapper>
+      </StyledPaper>
     </SharedGrid>
   );
 }

@@ -1,11 +1,12 @@
 import React from "react";
-import { Box, TextField, Paper, Stack } from "@mui/material";
+import { TextField, Stack } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import SharedButton from "../shared/Button/SharedButton";
 import SharedGrid from "../shared/Grid/SharedGrid";
-import { LOGIN_TEXT } from "../../constants/text"; // התאמת נתיב
+import { LOGIN_TEXT } from "../../constants/text";
+import { StyledPaper, TitleWrapper, FormWrapper } from "./Form.styled";
 
 const loginSchema = yup.object({
   email: yup.string().email(LOGIN_TEXT.invalidEmail).required(LOGIN_TEXT.emailRequired),
@@ -21,11 +22,11 @@ export default function LoginForm({ onSubmit }) {
 
   return (
     <SharedGrid>
-      <Paper elevation={3} sx={{ p: 4, maxWidth: 400, mx: "auto" }}>
-        <Box mb={3} textAlign="center">
+      <StyledPaper elevation={3}>
+        <TitleWrapper>
           <h2>{LOGIN_TEXT.title}</h2>
-        </Box>
-        <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+        </TitleWrapper>
+        <FormWrapper component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
           <Stack spacing={2}>
             <TextField
               label={LOGIN_TEXT.emailLabel}
@@ -54,8 +55,8 @@ export default function LoginForm({ onSubmit }) {
               {LOGIN_TEXT.submit}
             </SharedButton>
           </Stack>
-        </Box>
-      </Paper>
+        </FormWrapper>
+      </StyledPaper>
     </SharedGrid>
   );
 }
