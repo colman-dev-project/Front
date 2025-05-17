@@ -10,4 +10,5 @@ export const ROUTES = {
   MANAGE_PAGE: '/managerPage',
   CUSTOMER_PAGE: '/customerPage',
   PRODUCT_DETAILS: '/products/:id',
+  CART: '/cart'
 };
