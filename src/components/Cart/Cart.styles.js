@@ -16,13 +16,13 @@ export const CartTitle = styled(SharedText)(({ theme }) => ({
   textAlign: 'center',
 }));
 
-export const CartRow = styled('div')(({ theme }) => ({
+export const CartRow = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   marginBottom: theme.spacing(2),
 }));
 
-export const EmptyCartText = styled('div')(({ theme }) => ({
+export const EmptyCartText = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
   textAlign: 'center',
   padding: theme.spacing(8, 0),

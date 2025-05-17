@@ -21,22 +21,19 @@ const Cart = ({
 }) => {
   const validItems = Array.isArray(items) ? items : [];
   const isCartEmpty = validItems.length === 0;
-  const canPurchase = isLoggedIn && !isCartEmpty && total > 0;
+  const canPurchase = !isCartEmpty && total > 0;
 
-  if (isLoading) {
+  const statusText = isLoading
+    ? UI_TEXT.CART_LOADING
+    : isError
+      ? UI_TEXT.CART_ERROR
+      : null;
+
+  if (statusText) {
     return (
       <CartContainer>
         <CartTitle variant="h6">{UI_TEXT.CART_TITLE}</CartTitle>
-        <EmptyCartText>{UI_TEXT.CART_LOADING}</EmptyCartText>
-      </CartContainer>
-    );
-  }
-
-  if (isError) {
-    return (
-      <CartContainer>
-        <CartTitle variant="h6">{UI_TEXT.CART_TITLE}</CartTitle>
-        <EmptyCartText>{UI_TEXT.CART_ERROR}</EmptyCartText>
+        <EmptyCartText>{statusText}</EmptyCartText>
       </CartContainer>
     );
   }
@@ -49,15 +46,20 @@ const Cart = ({
       ) : (
         <>
           <SharedGrid
-            items={validItems.map((item) => ({
-              ...item,
+            items={validItems.map(({ id, image, name, price, rating, ...rest }) => ({
+              ...rest,
+              id,
+              image,
+              name,
+              price,
+              rating,
               description: (
                 <ProductCard
-                  id={item.id}
-                  image={item.image}
-                  name={item.name}
-                  price={item.price}
-                  rating={item.rating}
+                  id={id}
+                  image={image}
+                  name={name}
+                  price={price}
+                  rating={rating}
                   onSelect={() => {}}
                   disabled
                 />
