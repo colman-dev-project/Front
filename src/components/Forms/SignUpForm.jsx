@@ -3,10 +3,10 @@ import { TextField, Stack } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import SharedButton from "../shared/SharedButton";
-import SharedGrid from "../shared/SharedGrid";
 import { SIGNUP_TEXT } from "../../constants/text";
 import { StyledPaper, TitleWrapper, FormWrapper } from "./Form.styled";
+import SharedGrid from '../shared/Grid/SharedGrid.jsx';
+import SharedButton from '../shared/Button/SharedButton.jsx';
 
 const signupSchema = yup.object({
   email: yup.string().email(SIGNUP_TEXT.invalidEmail).required(SIGNUP_TEXT.emailRequired),
