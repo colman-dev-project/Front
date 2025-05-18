@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 
-
+const a = ;
 function App() {
   return (
     <>
