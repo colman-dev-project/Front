@@ -6,7 +6,7 @@ import {
   StyledItem,
 } from './Grid.styles';
 
-import { defaultColumns, defaultSpacing, defaultItemSize } from './Grid.styles';
+
 
 function SharedGrid({
   items = [],
@@ -31,7 +31,7 @@ function SharedGrid({
                 <StyledItem>{item.description}</StyledItem>
               </StyledGrid>
             ))
-          : children 
+          : children
         }
       </StyledGrid>
     </StyledBox>
