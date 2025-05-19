@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import ProductView from '../components/Product/ProductView';
 import ProductSkeleton from '../components/Product/ProductSkeleton';
 import { useProduct } from '../hooks/useMockProduct.js';
-import { useAddToCartMutation } from '../services/demoApi';
+import { useAddToCartMutation } from '../services/cartApi.js';
 
 const ProductPage = () => {
   const { id } = useParams();
