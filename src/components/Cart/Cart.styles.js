@@ -6,7 +6,7 @@ export const CartContainer = styled(Box)(({ theme }) => ({
   maxWidth: 480,
   marginInline: 'auto',
   padding: theme.spacing(3),
-  borderRadius: theme.shape.borderRadius * 2,
+  borderRadius: theme.shape.custom.roundedLg,
   backgroundColor: theme.palette.background.paper,
   boxShadow: theme.shadows[2],
 }));
@@ -14,6 +14,7 @@ export const CartContainer = styled(Box)(({ theme }) => ({
 export const CartTitle = styled(SharedText)(({ theme }) => ({
   marginBottom: theme.spacing(2),
   textAlign: 'center',
+  fontWeight: 700,
 }));
 
 export const CartRow = styled(Box)(({ theme }) => ({

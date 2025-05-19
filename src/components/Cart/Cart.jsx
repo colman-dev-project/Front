@@ -10,6 +10,7 @@ import {
   EmptyCartText,
 } from './Cart.styles';
 import PurchaseButton from '../shared/Button/purchaseButton/PurchaseButton.jsx';
+import CustomDivider from '../shared/Divider/CustomDivider.jsx';
 
 const Cart = ({
   items,
@@ -70,12 +71,12 @@ const Cart = ({
             justifyContent="center"
             alignItems="center"
           />
-          <Divider sx={{ my: 2 }} />
+          <CustomDivider />
           <CartRow>
             <CartTitle as="span" variant="body1">
               {UI_TEXT.CART_TOTAL}
             </CartTitle>
-            <CartTitle as="span" variant="body1" sx={{ fontWeight: 700 }}>
+            <CartTitle as="span" variant="body1" >
               {total} ₪
             </CartTitle>
           </CartRow>
