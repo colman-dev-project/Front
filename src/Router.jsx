@@ -8,7 +8,9 @@ import ProductPage from './pages/ProductPage.jsx';
 import ProductListPage from './pages/ProductListPage.jsx';
 import Manager_bar from './pages/Manage/Manage.jsx';
 import Customer_Bar from './pages/Customer/Customer.jsx';
+import CartPage from './pages/Cart/CartPage.jsx';
 import LoginForm from './components/Forms/LoginForm.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
       { path: ROUTES.PRODUCTS, element: <ProductListPage /> },
       { path: ROUTES.MANAGE_PAGE, element: <Manager_bar /> },
       { path: ROUTES.CUSTOMER_PAGE, element: <Customer_Bar /> },
+      { path: ROUTES.CART, element: <CartPage /> },
       { path: ROUTES.LOGIN, element: <LoginForm /> },
     ],
   },

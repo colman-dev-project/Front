@@ -1,6 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  shape: {
+    borderRadius: 8,
+    custom: {
+      roundedSm: 4,
+      roundedMd: 8,
+      roundedLg: 16,
+      roundedXl: 24,
+    },
+  },
   spacing: 8,
   palette: {
     background: {

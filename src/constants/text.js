@@ -21,6 +21,14 @@ export const UI_TEXT = {
   LOCKERS: 'Lockers',
   SUBTITLE1_VARIANT: 'subtitle1',
   SELECT_AN_OPTION: 'Select an option...',
+  CART_TITLE: 'Shopping Cart',
+  CART_EMPTY: 'Your cart is empty',
+  CART_TOTAL: 'Total',
+  CART_CONTINUE: 'Continue to Purchase',
+  PRODUCT_NAME: 'Product Name',
+  CART_LOADING: "Loading...",
+  CART_LOGIN_REQUIRED: "Please log in to continue your purchase.",
+  CART_ERROR: "Error loading cart. Please try again.",
   NEWEST_PRODUCTS: 'Newest Products',
 };
 
@@ -46,4 +54,5 @@ export const SIGNUP_TEXT = {
   confirmPasswordRequired: 'Please confirm your password',
   passwordMismatch: 'Passwords must match',
   passwordMin: 'Password must be at least 6 characters',
+
 };

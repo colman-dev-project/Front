@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {
+  defaultColumns, defaultItemSize, defaultSpacing,
   StyledBox,
   StyledGrid,
-  StyledItem
+  StyledItem,
 } from './Grid.styles';
 
 import { defaultColumns, defaultSpacing, defaultItemSize } from './Grid.styles';
