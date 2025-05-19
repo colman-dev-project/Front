@@ -38,6 +38,15 @@ const theme = createTheme({
   customShadows: {
     main: '0 0.625rem 1.25rem rgba(0, 0, 0, 0.2)',
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 });
 
 export default theme;

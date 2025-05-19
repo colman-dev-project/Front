@@ -6,12 +6,15 @@ import {
   StyledItem,
 } from './Grid.styles';
 
+import { defaultColumns, defaultSpacing, defaultItemSize } from './Grid.styles';
+
 function SharedGrid({
   items = [],
   columns = defaultColumns,
   spacing = defaultSpacing,
   itemSize = defaultItemSize,
   style = {},
+  children,
   ...rest
 }) {
   return (
@@ -22,11 +25,14 @@ function SharedGrid({
         columns={columns}
         {...rest}
       >
-        {items.map((item) => (
-          <StyledGrid item key={item.id} {...itemSize}>
-            <StyledItem>{item.description}</StyledItem>
-          </StyledGrid>
-        ))}
+           {items.length > 0
+          ? items.map((item) => (
+              <StyledGrid item key={item.id} {...itemSize}>
+                <StyledItem>{item.description}</StyledItem>
+              </StyledGrid>
+            ))
+          : children 
+        }
       </StyledGrid>
     </StyledBox>
   );

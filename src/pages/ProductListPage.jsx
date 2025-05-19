@@ -7,11 +7,12 @@ import {ROUTES} from '../constants/routerPaths.js';
 import SharedTypography from '../components/shared/Text/SharedText.jsx';
 import {spinnerStyle, containerStyle} from './ProductListPage.styled.js';
 import {UI_TEXT} from '../constants/text.js';
+import { useGetProductsQuery } from '../services/productApi.js';
 
 const ProductListPage = () => {
   const navigate = useNavigate();
-  const { products, isLoading, error } = useProducts();
-
+  const { data: products, isLoading, error } = useGetProductsQuery();
+  
   const handleSelect = (id) => navigate(`${ROUTES.PRODUCTS}/${id}`);
 
   if (isLoading) return <CircularProgress style={spinnerStyle} />
