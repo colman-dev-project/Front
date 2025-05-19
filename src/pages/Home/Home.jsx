@@ -7,6 +7,7 @@ import SharedTypography from '../../components/shared/Text/SharedText.jsx';
 import { CircularProgress } from '@mui/material';
 import { UI_TEXT } from '../../constants/text.js';
 import ProductCarousel from '../../components/ProductCarousel/ProductCarousel.jsx';
+import { StyledContainer, HeroBox, NewestProductsBox } from './home.styled';
 
 function Home() {
   useScrollToTop();
@@ -17,12 +18,12 @@ function Home() {
   } = useGetNewestProductsQuery();
 
   return (
-    <Container sx={{ py: 4 }}>
-      <Box sx={{ textAlign: 'center' }}>
+    <StyledContainer>
+      <HeroBox>
         <Hero />
-      </Box>
+      </HeroBox>
 
-      <Box sx={{ mt: 5 }}>
+      <NewestProductsBox>
         <SharedTypography variant="h5" gutterBottom>
           {UI_TEXT.NEWEST_PRODUCTS}
         </SharedTypography>
@@ -33,8 +34,8 @@ function Home() {
         {newestProducts && (
           <ProductCarousel products={newestProducts.slice(0, 8)} />
         )}
-      </Box>
-    </Container>
+      </NewestProductsBox>
+    </StyledContainer>
   );
 }
 export default Home;
