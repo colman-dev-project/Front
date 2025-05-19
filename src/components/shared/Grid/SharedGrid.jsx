@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {
-  defaultColumns, defaultItemSize, defaultSpacing,
+  defaultColumns,
+  defaultItemSize,
+  defaultSpacing,
   StyledBox,
   StyledGrid,
   StyledItem,
 } from './Grid.styles';
-
-import { defaultColumns, defaultSpacing, defaultItemSize } from './Grid.styles';
 
 function SharedGrid({
   items = [],
@@ -19,20 +19,14 @@ function SharedGrid({
 }) {
   return (
     <StyledBox style={style}>
-      <StyledGrid
-        container
-        spacing={spacing}
-        columns={columns}
-        {...rest}
-      >
-           {items.length > 0
+      <StyledGrid container spacing={spacing} columns={columns} {...rest}>
+        {items.length > 0
           ? items.map((item) => (
               <StyledGrid item key={item.id} {...itemSize}>
                 <StyledItem>{item.description}</StyledItem>
               </StyledGrid>
             ))
-          : children 
-        }
+          : children}
       </StyledGrid>
     </StyledBox>
   );

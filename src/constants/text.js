@@ -26,9 +26,9 @@ export const UI_TEXT = {
   CART_TOTAL: 'Total',
   CART_CONTINUE: 'Continue to Purchase',
   PRODUCT_NAME: 'Product Name',
-  CART_LOADING: "Loading...",
-  CART_LOGIN_REQUIRED: "Please log in to continue your purchase.",
-  CART_ERROR: "Error loading cart. Please try again.",
+  CART_LOADING: 'Loading...',
+  CART_LOGIN_REQUIRED: 'Please log in to continue your purchase.',
+  CART_ERROR: 'Error loading cart. Please try again.',
   NEWEST_PRODUCTS: 'Newest Products',
 };
 
@@ -40,19 +40,25 @@ export const LOGIN_TEXT = {
   emailRequired: 'Email is required',
   invalidEmail: 'Invalid email address',
   passwordRequired: 'Password is required',
+  usernameLabel: 'Username',
+  usernameRequired: 'Username is required',
 };
 
 export const SIGNUP_TEXT = {
   title: 'Sign Up',
+  nameLabel: 'Full Name',
+  usernameLabel: 'Username',
   emailLabel: 'Email',
   passwordLabel: 'Password',
   confirmPasswordLabel: 'Confirm Password',
-  submit: 'Sign Up',
+  submit: 'Create Account',
+
+  nameRequired: 'Name is required',
+  usernameRequired: 'Username is required',
   emailRequired: 'Email is required',
-  invalidEmail: 'Invalid email address',
+  invalidEmail: 'Please enter a valid email',
+  passwordMin: 'Password must be at least 6 characters',
   passwordRequired: 'Password is required',
   confirmPasswordRequired: 'Please confirm your password',
-  passwordMismatch: 'Passwords must match',
-  passwordMin: 'Password must be at least 6 characters',
-
+  passwordMismatch: 'Passwords do not match',
 };
