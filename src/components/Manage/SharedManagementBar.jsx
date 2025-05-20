@@ -6,7 +6,7 @@ import {
   containerOuterBox,
   StyledAppBar,
 } from './SharedManagementBar.styled';
-import SharedTypography from '../Text/SharedText';
+import SharedTypography from '../shared/Text/SharedText';
 import ManagerCustomers from './Tabs/ManagerCustomers';
 import ManagerDashboard from './Tabs/ManagerDashboard';
 import ManagerOrders from './Tabs/ManagerOrders';
@@ -15,7 +15,7 @@ import ManagerLockers from './Tabs/ManagerLockers';
 import UserOrders from './Tabs/UserOrders';
 import UserProducts from './Tabs/UserProducts';
 import UserProfile from './Tabs/UserProfile';
-import { UI_TEXT } from '../../../constants/text';
+import { UI_TEXT } from '../../constants/text';
 
 function TabPanel({ children, value, index, ...other }) {
   const isHidden = value !== index;
