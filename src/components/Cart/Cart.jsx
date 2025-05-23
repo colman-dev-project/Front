@@ -11,6 +11,7 @@ import {
 } from './Cart.styles';
 import PurchaseButton from '../shared/Button/purchaseButton/PurchaseButton.jsx';
 import CustomDivider from '../shared/Divider/CustomDivider.jsx';
+import SharedButton from '../shared/Button/SharedButton.jsx';
 
 const Cart = ({
   items,
@@ -40,6 +41,7 @@ const Cart = ({
   }
 
   return (
+    
     <CartContainer>
       <CartTitle variant="h6">{UI_TEXT.CART_TITLE}</CartTitle>
       {isCartEmpty ? (
@@ -47,25 +49,27 @@ const Cart = ({
       ) : (
         <>
           <SharedGrid
-            items={validItems.map(({ id, image, name, price, rating, ...rest }) => ({
-              ...rest,
-              id,
-              image,
-              name,
-              price,
-              rating,
-              description: (
-                <ProductCard
-                  id={id}
-                  image={image}
-                  name={name}
-                  price={price}
-                  rating={rating}
-                  onSelect={() => {}}
-                  disabled
-                />
-              ),
-            }))}
+            items={validItems.map(
+              ({ id, image, name, price, rating, ...rest }) => ({
+                ...rest,
+                id,
+                image,
+                name,
+                price,
+                rating,
+                description: (
+                  <ProductCard
+                    id={id}
+                    image={image}
+                    name={name}
+                    price={price}
+                    rating={rating}
+                    onSelect={() => {}}
+                    disabled
+                  />
+                ),
+              }),
+            )}
             columns={1}
             spacing={2}
             justifyContent="center"
@@ -76,7 +80,7 @@ const Cart = ({
             <CartTitle as="span" variant="body1">
               {UI_TEXT.CART_TOTAL}
             </CartTitle>
-            <CartTitle as="span" variant="body1" >
+            <CartTitle as="span" variant="body1">
               {total} ₪
             </CartTitle>
           </CartRow>
