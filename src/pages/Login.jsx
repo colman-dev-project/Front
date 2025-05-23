@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../api/axiosInstance'; 
-import LoginForm from '../../components/Forms/LoginForm';
-import authStorageService from '../../services/authStorageService';
+import axios from '../api/axios.js';
+import LoginForm from '../components/Forms/LoginForm';
+import authStorageService from '../services/authStorageService';
+
 
 export default function LoginPage() {
   const [error, setError] = useState('');
@@ -10,13 +11,13 @@ export default function LoginPage() {
 
   const handleLogin = async (data) => {
     try {
-      const response = await axiosInstance.post('/api/v1/login', data);
+      const response = await axios.post('/api/v1/login', data);
       const { token } = response.data;
 
       authStorageService.setToken(token);
 
       setError('');
-      navigate('/'); 
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed');
     }
