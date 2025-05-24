@@ -1,5 +1,4 @@
 import React from 'react';
-import Divider from '@mui/material/Divider';
 import ProductCard from '../Product/ProductCard';
 import SharedGrid from '../shared/Grid/SharedGrid';
 import { UI_TEXT } from '../../constants/text';
@@ -17,6 +16,7 @@ const Cart = ({
   items,
   total,
   onContinue,
+  onRemove,
   isLoading = false,
   isError = false,
   isLoggedIn = true,
@@ -41,7 +41,6 @@ const Cart = ({
   }
 
   return (
-    
     <CartContainer>
       <CartTitle variant="h6">{UI_TEXT.CART_TITLE}</CartTitle>
       {isCartEmpty ? (
@@ -58,15 +57,20 @@ const Cart = ({
                 price,
                 rating,
                 description: (
-                  <ProductCard
-                    id={id}
-                    image={image}
-                    name={name}
-                    price={price}
-                    rating={rating}
-                    onSelect={() => {}}
-                    disabled
-                  />
+                  <>
+                    <ProductCard
+                      id={id}
+                      image={image}
+                      name={name}
+                      price={price}
+                      rating={rating}
+                      onSelect={() => {}}
+                      disabled
+                    />
+                    <SharedButton onClick={() => onRemove(id)}>
+                      {UI_TEXT.CART_REMOVE}
+                    </SharedButton>
+                  </>
                 ),
               }),
             )}
