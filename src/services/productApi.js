@@ -12,7 +12,17 @@ export const productApi = createApi({
     getNewestProducts: builder.query({
       query: () => '/products?limit=8&sort=newest',
     }),
+    deleteProduct: builder.mutation({
+      query: (productId) => ({
+        url: `/products/${productId}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
-export const { useGetProductsQuery, useGetNewestProductsQuery } = productApi;
+export const {
+  useGetProductsQuery,
+  useGetNewestProductsQuery,
+  useDeleteProductMutation,
+} = productApi;
