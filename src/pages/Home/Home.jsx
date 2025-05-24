@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container, Box } from '@mui/material';
-import useScrollToTop from '../../hooks/useScrollToTop.js';
-import Hero from '../../components/hero/hero.jsx';
+import Hero from '../../components/Hero/Hero.jsx';
 import { useGetNewestProductsQuery } from '../../services/productApi.js';
 import SharedTypography from '../../components/shared/Text/SharedText.jsx';
 import { CircularProgress } from '@mui/material';
 import { UI_TEXT } from '../../constants/text.js';
 import ProductCarousel from '../../components/ProductCarousel/ProductCarousel.jsx';
-import { StyledContainer, HeroBox, NewestProductsBox } from './home.styled';
+import { StyledContainer, HeroBox, NewestProductsBox } from './Home.styled';
+import useScrollToTop from '../../hooks/useScrollToTop.js';
 
 function Home() {
   useScrollToTop();
