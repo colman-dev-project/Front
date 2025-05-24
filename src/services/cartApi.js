@@ -3,7 +3,7 @@ import { BASE_URL } from '../constants/routerPaths';
 
 export const cartApi = createApi({
   reducerPath: 'cartApi',
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_SERVER_URL }),
   endpoints: (builder) => ({
     AddToCart: builder.mutation({
       query: (product) => ({
@@ -12,7 +12,21 @@ export const cartApi = createApi({
         body: product,
       }),
     }),
+    getCart: builder.query({
+      query: () => '/cart',
+    }),
+
+    removeFromCart: builder.mutation({
+      query: (productId) => ({
+        url: `/cart/${productId}`, 
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
-export const { useAddToCartMutation } = cartApi;
+export const {
+  useAddToCartMutation,
+  useGetCartQuery,
+  useRemoveFromCartMutation,
+} = cartApi;
