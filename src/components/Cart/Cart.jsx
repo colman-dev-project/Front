@@ -6,11 +6,10 @@ import {
   CartContainer,
   CartTitle,
   CartRow,
-  EmptyCartText,
+  EmptyCartText, RemoveButtonWrapper, CartItemWrapper,
 } from './Cart.styles';
 import PurchaseButton from '../shared/Button/purchaseButton/PurchaseButton.jsx';
 import CustomDivider from '../shared/Divider/CustomDivider.jsx';
-import SharedButton from '../shared/Button/SharedButton.jsx';
 
 const Cart = ({
   items,
@@ -57,7 +56,7 @@ const Cart = ({
                 price,
                 rating,
                 description: (
-                  <>
+                  <CartItemWrapper>
                     <ProductCard
                       id={id}
                       image={image}
@@ -67,10 +66,10 @@ const Cart = ({
                       onSelect={() => {}}
                       disabled
                     />
-                    <SharedButton onClick={() => onRemove(id)}>
-                      {UI_TEXT.CART_REMOVE}
-                    </SharedButton>
-                  </>
+                    <RemoveButtonWrapper>
+                      <PurchaseButton onClick={() => onRemove(id)}>Remove</PurchaseButton>
+                    </RemoveButtonWrapper>
+                  </CartItemWrapper>
                 ),
               }),
             )}
@@ -94,6 +93,7 @@ const Cart = ({
           <PurchaseButton onClick={onContinue} disabled={!canPurchase}>
             {UI_TEXT.CART_CONTINUE}
           </PurchaseButton>
+
         </>
       )}
     </CartContainer>
