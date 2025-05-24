@@ -3,7 +3,7 @@ import { BASE_URL } from '../constants/routerPaths';
 
 export const cartApi = createApi({
   reducerPath: 'cartApi',
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_SERVER_URL }),
   endpoints: (builder) => ({
     AddToCart: builder.mutation({
       query: (product) => ({

@@ -7,15 +7,26 @@ export const productApi = createApi({
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: () => '/products',
+      providesTags: ['Product'],
     }),
 
     getNewestProducts: builder.query({
       query: () => '/products?limit=8&sort=newest',
+      providesTags: ['Product'],
     }),
     deleteProduct: builder.mutation({
       query: (productId) => ({
         url: `/products/${productId}`,
         method: 'DELETE',
+        invalidatesTags: ['Product'],
+      }),
+      updateProduct: builder.mutation({
+        query: ({ productId, updatedData }) => ({
+          url: `/products/${productId}`,
+          method: 'PATCH',
+          body: updatedData,
+        }),
+        invalidatesTags: ['Product'],
       }),
     }),
   }),
@@ -25,4 +36,5 @@ export const {
   useGetProductsQuery,
   useGetNewestProductsQuery,
   useDeleteProductMutation,
+  useUpdateProductMutation,
 } = productApi;
