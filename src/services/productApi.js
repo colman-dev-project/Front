@@ -1,40 +1,43 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { ROUTES } from '../constants/routerPaths';
+import { HTTP_METHODS } from '../constants/httpMethods';
+import { TAG_TYPES } from '../constants/tagTypes';
 
 export const productApi = createApi({
   reducerPath: 'productApi',
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_SERVER_URL }),
-  tagTypes: ['Product'],
+  tagTypes: [TAG_TYPES.PRODUCT],
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => '/products',
-      providesTags: ['Product'],
+      query: () => ROUTES.PRODUCTS,
+      providesTags: [TAG_TYPES.PRODUCT],
     }),
     getNewestProducts: builder.query({
-      query: () => '/products?limit=8&sort=newest',
-      providesTags: ['Product'],
+      query: () => `${ROUTES.PRODUCTS}?limit=8&sort=newest`,
+      providesTags: [TAG_TYPES.PRODUCT],
     }),
     deleteProduct: builder.mutation({
       query: (productId) => ({
-        url: `/products/${productId}`,
-        method: 'DELETE',
+        url: `${ROUTES.PRODUCTS}/${productId}`,
+        method: HTTP_METHODS.DELETE,
       }),
-      invalidatesTags: ['Product'],
+      invalidatesTags: [TAG_TYPES.PRODUCT],
     }),
     updateProduct: builder.mutation({
       query: ({ productId, updatedData }) => ({
-        url: `/products/${productId}`,
-        method: 'PATCH',
+        url: `${ROUTES.PRODUCTS}/${productId}`,
+        method: HTTP_METHODS.PATCH,
         body: updatedData,
       }),
-      invalidatesTags: ['Product'],
+      invalidatesTags: [TAG_TYPES.PRODUCT],
     }),
     addProduct: builder.mutation({
       query: (newProduct) => ({
-        url: '/products',
-        method: 'POST',
+        url: ROUTES.PRODUCTS,
+        method: HTTP_METHODS.POST,
         body: newProduct,
       }),
-      invalidatesTags: ['Product'],
+      invalidatesTags: [TAG_TYPES.PRODUCT],
     }),
   }),
 });

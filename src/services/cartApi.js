@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL } from '../constants/routerPaths';
+import { ROUTES } from '../constants/routerPaths';
+import { HTTP_METHODS } from '../constants/httpMethods';
 
 export const cartApi = createApi({
   reducerPath: 'cartApi',
@@ -7,19 +9,19 @@ export const cartApi = createApi({
   endpoints: (builder) => ({
     AddToCart: builder.mutation({
       query: (product) => ({
-        url: '/cart',
-        method: 'POST',
+        url: ROUTES.CART,
+        method: HTTP_METHODS.POST,
         body: product,
       }),
     }),
     getCart: builder.query({
-      query: () => '/cart',
+      query: () => ROUTES.CART,
     }),
 
     removeFromCart: builder.mutation({
       query: (productId) => ({
-        url: `/cart/${productId}`, 
-        method: 'DELETE',
+        url: `${ROUTES.CART}/${productId}`,
+        method: HTTP_METHODS.DELETE,
       }),
     }),
   }),
