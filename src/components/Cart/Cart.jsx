@@ -6,7 +6,9 @@ import {
   CartContainer,
   CartTitle,
   CartRow,
-  EmptyCartText, RemoveButtonWrapper, CartItemWrapper,
+  EmptyCartText,
+  RemoveButtonWrapper,
+  CartItemWrapper,
 } from './Cart.styles';
 import PurchaseButton from '../shared/Button/purchaseButton/PurchaseButton.jsx';
 import CustomDivider from '../shared/Divider/CustomDivider.jsx';
@@ -15,7 +17,7 @@ const Cart = ({
   items,
   total,
   onContinue,
-  onRemove,
+  handleItemRemove,
   isLoading = false,
   isError = false,
   isLoggedIn = true,
@@ -67,7 +69,9 @@ const Cart = ({
                       disabled
                     />
                     <RemoveButtonWrapper>
-                      <PurchaseButton onClick={() => onRemove(id)}>Remove</PurchaseButton>
+                      <PurchaseButton onClick={() => handleItemRemove(id)}>
+                        Remove
+                      </PurchaseButton>
                     </RemoveButtonWrapper>
                   </CartItemWrapper>
                 ),
@@ -93,7 +97,6 @@ const Cart = ({
           <PurchaseButton onClick={onContinue} disabled={!canPurchase}>
             {UI_TEXT.CART_CONTINUE}
           </PurchaseButton>
-
         </>
       )}
     </CartContainer>
