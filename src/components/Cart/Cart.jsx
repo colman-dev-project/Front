@@ -1,5 +1,4 @@
 import React from 'react';
-import Divider from '@mui/material/Divider';
 import ProductCard from '../Product/ProductCard';
 import SharedGrid from '../shared/Grid/SharedGrid';
 import { UI_TEXT } from '../../constants/text';
@@ -8,15 +7,17 @@ import {
   CartTitle,
   CartRow,
   EmptyCartText,
+  RemoveButtonWrapper,
+  CartItemWrapper,
 } from './Cart.styles';
 import PurchaseButton from '../shared/Button/purchaseButton/PurchaseButton.jsx';
 import CustomDivider from '../shared/Divider/CustomDivider.jsx';
-import SharedButton from '../shared/Button/SharedButton.jsx';
 
 const Cart = ({
   items,
   total,
   onContinue,
+  handleItemRemove,
   isLoading = false,
   isError = false,
   isLoggedIn = true,
@@ -41,7 +42,6 @@ const Cart = ({
   }
 
   return (
-    
     <CartContainer>
       <CartTitle variant="h6">{UI_TEXT.CART_TITLE}</CartTitle>
       {isCartEmpty ? (
@@ -58,15 +58,22 @@ const Cart = ({
                 price,
                 rating,
                 description: (
-                  <ProductCard
-                    id={id}
-                    image={image}
-                    name={name}
-                    price={price}
-                    rating={rating}
-                    onSelect={() => {}}
-                    disabled
-                  />
+                  <CartItemWrapper>
+                    <ProductCard
+                      id={id}
+                      image={image}
+                      name={name}
+                      price={price}
+                      rating={rating}
+                      onSelect={() => {}}
+                      disabled
+                    />
+                    <RemoveButtonWrapper>
+                      <PurchaseButton onClick={() => handleItemRemove(id)}>
+                        Remove
+                      </PurchaseButton>
+                    </RemoveButtonWrapper>
+                  </CartItemWrapper>
                 ),
               }),
             )}
