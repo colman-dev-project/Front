@@ -1,10 +1,8 @@
 import { ERROR_MESSAGES } from '../constants/errors.js';
 
 const storageService = {
-  getItem: (key) => localStorage.getItem(key),
-  setItem: (key, value) => localStorage.setItem(key, value),
-  removeItem: (key) => localStorage.removeItem(key),
-  parseJsonItem: (rawValue) => {
+  getParsedItem: (key) => {
+    const rawValue = localStorage.getItem(key);
     try {
       return rawValue ? JSON.parse(rawValue) : null;
     } catch (e) {
@@ -18,7 +16,8 @@ const storageService = {
     } catch (e) {
       console.error(ERROR_MESSAGES.FAILED_TO_STRINGIFY, e);
     }
-  }
+  },
+  removeItem: (key) => localStorage.removeItem(key),
 };
 
 export default storageService;

@@ -8,13 +8,8 @@ const CartPage = () => {
   const [cart, setCart] = useState([]);
   const total = cart.reduce((acc, item) => acc + item.price, 0);
   useEffect(() => {
-    const rawCartItems = storageService.getItem(LOCAL_STORAGE_KEYS.CART_ITEMS);
-    const storedItems = storageService.parseJsonItem(rawCartItems);
-    if (storedItems) {
-      setCart(storedItems);
-    } else {
-      setCart([]);
-    }
+    const storedItems = storageService.getParsedItem(LOCAL_STORAGE_KEYS.CART_ITEMS);
+    setCart(Array.isArray(storedItems) ? storedItems : []);
   }, []);
 
   const handleContinue = () => {
@@ -22,10 +17,11 @@ const CartPage = () => {
   };
 
   const handleRemove = (id) => {
-    const updatedItems = cart.filter((item) => item.id !== id);
-    setCart(updatedItems);
-    storageService.setParsedItem(LOCAL_STORAGE_KEYS.CART_ITEMS, updatedItems);
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+    storageService.setParsedItem(LOCAL_STORAGE_KEYS.CART_ITEMS, newCart);
   };
+
 
   return (
     <Cart
