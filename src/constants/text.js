@@ -30,6 +30,9 @@ export const UI_TEXT = {
   CART_LOGIN_REQUIRED: 'Please log in to continue your purchase.',
   CART_ERROR: 'Error loading cart. Please try again.',
   NEWEST_PRODUCTS: 'Newest Products',
+  ADD_PRODUCT: 'Add Product.',
+  UPLOAD_PRODUCT: 'Upload a new product to Locker It.',
+  VIEW_ANALYTICS: 'View your products, orders, and analytics.',
 };
 
 export const LOGIN_TEXT = {
