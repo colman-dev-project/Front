@@ -7,6 +7,7 @@ import { SIGNUP_TEXT } from "../../constants/text";
 import { StyledPaper, TitleWrapper, FormWrapper } from "./Form.styled";
 import SharedGrid from '../shared/Grid/SharedGrid.jsx';
 import SharedButton from '../shared/Button/SharedButton.jsx';
+import SharedLinkButton from "../shared/Button/SharedLinkButton.jsx";
 
 const signupSchema = yup.object({
   name: yup.string().required(SIGNUP_TEXT.nameRequired),
@@ -84,6 +85,15 @@ export default function SignupForm({ onSubmit }) {
             >
               {SIGNUP_TEXT.submit}
             </SharedButton>
+
+            <SharedLinkButton
+            to="/auth/login"
+            variant="text"
+            size="small"
+            fullWidth
+          >
+            {SIGNUP_TEXT.loginLinkText}
+          </SharedLinkButton>
           </Stack>
         </FormWrapper>
       </StyledPaper>
