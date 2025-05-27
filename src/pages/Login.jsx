@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../api/axiosInstance'; 
-import LoginForm from '../../components/Forms/LoginForm';
+import LoginForm from '../components/Forms/LoginForm'
 import authStorageService from '../../services/authStorageService';
+import { API_PATHS } from '../constants/auth.constants'
+import SharedTypography from '../components/shared/Text/SharedText';
 
 export default function LoginPage() {
   const [error, setError] = useState('');
@@ -10,7 +12,7 @@ export default function LoginPage() {
 
   const handleLogin = async (data) => {
     try {
-      const response = await axiosInstance.post('/api/v1/login', data);
+      const response = await axiosInstance.post(API_PATHS.LOGIN, data);
       const { token } = response.data;
 
       authStorageService.setToken(token);
@@ -25,7 +27,7 @@ export default function LoginPage() {
   return (
     <div>
       <LoginForm onSubmit={handleLogin} />
-      {error && <p style={{ color: 'red', marginTop: '1rem' }}>{error}</p>}
+      {error && <SharedTypography>{error}</SharedTypography>}
     </div>
   );
 }
