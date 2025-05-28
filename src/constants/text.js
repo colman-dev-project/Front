@@ -65,3 +65,20 @@ export const SIGNUP_TEXT = {
   confirmPasswordRequired: 'Please confirm your password',
   passwordMismatch: 'Passwords do not match',
 };
+
+export const PAYMENT_TEXT = {
+  title: "Payment Details",
+  cardNumberLabel: "Card Number",
+  cardNumberRequired: "Card number is required",
+  cardNumberInvalid: "Card number must be 16 digits",
+  expiryLabel: "Expiry (MM/YY)",
+  expiryRequired: "Expiry date is required",
+  expiryInvalid: "Expiry must be in MM/YY format",
+  cvvLabel: "CVV",
+  cvvRequired: "CVV is required",
+  cvvInvalid: "CVV must be 3 or 4 digits",
+  cardHolderLabel: "Cardholder Name",
+  cardHolderRequired: "Cardholder name is required",
+  submit: "Pay Now",
+};
+
