@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
-import theme from '../../../theme/theme';
+import theme from '../../theme/theme';
 
 export const containerOuterBox = {
   position: 'relative',

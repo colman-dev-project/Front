@@ -1,22 +1,31 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  shape: {
+    borderRadius: 8,
+    custom: {
+      roundedSm: 4,
+      roundedMd: 8,
+      roundedLg: 16,
+      roundedXl: 24,
+    },
+  },
   spacing: 8,
   palette: {
     background: {
-      default: "#f5f5f5",
-      paper: "#ffffff",
+      default: '#f5f5f5',
+      paper: '#ffffff',
     },
-    divider: "#ddd",
+    divider: '#ddd',
     text: {
-      primary: "#555555",
-      secondary: "#888888",
+      primary: '#555555',
+      secondary: '#888888',
     },
     primary: {
-      main: "#1976d2",
+      main: '#1976d2',
     },
     secondary: {
-      main: "#1565c0",
+      main: '#1565c0',
     },
   },
   typography: {
@@ -28,6 +37,15 @@ const theme = createTheme({
   },
   customShadows: {
     main: '0 0.625rem 1.25rem rgba(0, 0, 0, 0.2)',
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
   },
 });
 

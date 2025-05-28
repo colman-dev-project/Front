@@ -20,5 +20,62 @@ export const UI_TEXT = {
   PROFILE: 'Profile',
   LOCKERS: 'Lockers',
   SUBTITLE1_VARIANT: 'subtitle1',
-  SELECT_AN_OPTION:'Select an option...',
+  SELECT_AN_OPTION: 'Select an option...',
+  CART_TITLE: 'Shopping Cart',
+  CART_EMPTY: 'Your cart is empty',
+  CART_TOTAL: 'Total',
+  CART_CONTINUE: 'Continue to Purchase',
+  PRODUCT_NAME: 'Product Name',
+  CART_LOADING: 'Loading...',
+  CART_LOGIN_REQUIRED: 'Please log in to continue your purchase.',
+  CART_ERROR: 'Error loading cart. Please try again.',
+  NEWEST_PRODUCTS: 'Newest Products',
 };
+
+export const LOGIN_TEXT = {
+  title: 'Login',
+  emailLabel: 'Email',
+  passwordLabel: 'Password',
+  submit: 'Login',
+  emailRequired: 'Email is required',
+  invalidEmail: 'Invalid email address',
+  passwordRequired: 'Password is required',
+  usernameLabel: 'Username',
+  usernameRequired: 'Username is required',
+};
+
+export const SIGNUP_TEXT = {
+  title: 'Sign Up',
+  nameLabel: 'Full Name',
+  usernameLabel: 'Username',
+  emailLabel: 'Email',
+  passwordLabel: 'Password',
+  confirmPasswordLabel: 'Confirm Password',
+  submit: 'Create Account',
+
+  nameRequired: 'Name is required',
+  usernameRequired: 'Username is required',
+  emailRequired: 'Email is required',
+  invalidEmail: 'Please enter a valid email',
+  passwordMin: 'Password must be at least 6 characters',
+  passwordRequired: 'Password is required',
+  confirmPasswordRequired: 'Please confirm your password',
+  passwordMismatch: 'Passwords do not match',
+};
+
+export const PAYMENT_TEXT = {
+  title: "Payment Details",
+  cardNumberLabel: "Card Number",
+  cardNumberRequired: "Card number is required",
+  cardNumberInvalid: "Card number must be 16 digits",
+  expiryLabel: "Expiry (MM/YY)",
+  expiryRequired: "Expiry date is required",
+  expiryInvalid: "Expiry must be in MM/YY format",
+  cvvLabel: "CVV",
+  cvvRequired: "CVV is required",
+  cvvInvalid: "CVV must be 3 or 4 digits",
+  cardHolderLabel: "Cardholder Name",
+  cardHolderRequired: "Cardholder name is required",
+  submit: "Pay Now",
+};
+
