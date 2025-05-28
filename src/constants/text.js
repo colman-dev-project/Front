@@ -31,6 +31,9 @@ export const UI_TEXT = {
   CART_ERROR: 'Error loading cart',
   NEWEST_PRODUCTS: 'Newest Products',
   NO_ITEMS_IN_CART: 'No items in your cart',
+  ADD_PRODUCT: 'Add Product.',
+  UPLOAD_PRODUCT: 'Upload a new product to Locker It.',
+  VIEW_ANALYTICS: 'View your products, orders, and analytics.',
 };
 
 export const LOGIN_TEXT = {

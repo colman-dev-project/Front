@@ -8,7 +8,7 @@ import { formatToShekels } from '../../utils/converting.js';
 
 const ProductCard = ({
   id,
-  image,
+  images,
   name,
   price,
   rating,
@@ -18,7 +18,7 @@ const ProductCard = ({
   return (
     <StyledCard {...props}>
       <CardActionArea onClick={() => onSelect(id)}>
-        <SharedImage src={image} alt={name} />
+        <SharedImage src={images} alt={name} />
 
         <CardContent>
           <SharedTypography variant={UI_TEXT.SUBTITLE1_VARIANT}>

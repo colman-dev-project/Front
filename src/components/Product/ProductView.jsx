@@ -26,7 +26,7 @@ import { UI_TEXT } from '../../constants/text.js';
 import { formatToShekels } from '../../utils/converting.js';
 
 const ProductView = ({
-  image,
+  images,
   name,
   description,
   price,
@@ -38,7 +38,7 @@ const ProductView = ({
 }) => {
   return (
     <BigStyledCard>
-      <SharedImage src={image} alt={name} />
+      <SharedImage src={images} alt={name} />
 
       <CardContent>
         <SharedTypography variant="h5">{name}</SharedTypography>
