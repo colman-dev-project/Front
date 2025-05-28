@@ -6,20 +6,26 @@ import * as yup from 'yup';
 import { PAYMENT_TEXT } from '../../constants/text.js';
 import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled.js';
 import SharedButton from '../shared/Button/SharedButton.jsx';
+import {
+  CARD_NUMBER_REGEX,
+  EXPIRY_REGEX,
+  CVV_REGEX,
+} from '../../utils/regex.js';
+import SharedTypography from '../shared/Text/SharedText.jsx';
 
 const paymentSchema = yup.object({
   cardNumber: yup
     .string()
     .required(PAYMENT_TEXT.cardNumberRequired)
-    .matches(/^\d{16}$/, PAYMENT_TEXT.cardNumberInvalid),
+    .matches(CARD_NUMBER_REGEX, PAYMENT_TEXT.cardNumberInvalid),
   expiry: yup
     .string()
     .required(PAYMENT_TEXT.expiryRequired)
-    .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, PAYMENT_TEXT.expiryInvalid),
+    .matches(EXPIRY_REGEX, PAYMENT_TEXT.expiryInvalid),
   cvv: yup
     .string()
     .required(PAYMENT_TEXT.cvvRequired)
-    .matches(/^\d{3,4}$/, PAYMENT_TEXT.cvvInvalid),
+    .matches(CVV_REGEX, PAYMENT_TEXT.cvvInvalid),
   cardHolder: yup.string().required(PAYMENT_TEXT.cardHolderRequired),
 });
 
@@ -32,9 +38,9 @@ export default function PaymentForm({ onSubmit }) {
 
   return (
     <StyledPaper elevation={3}>
-      <TitleWrapper>
-        <h2>{PAYMENT_TEXT.title}</h2>
-      </TitleWrapper>
+      <SharedTypography variant="h5">
+        {PAYMENT_TEXT.title}
+      </SharedTypography>
       <FormWrapper
         component="form"
         onSubmit={handleSubmit(onSubmit)}
