@@ -33,6 +33,5 @@ export const SharedFlexBox = styled(Box)(({ theme }) => ({
 }));
 
 export const dividerStyle = {
-  marginTop: '1rem',
-  marginBottom: '1rem',
+  margin: '1rem 0',
 };

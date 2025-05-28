@@ -5,13 +5,12 @@ import SharedTypography from '../shared/Text/SharedText';
 import {
   OrderCardContainer,
   ItemCard,
-  ImageStyle,
   SharedFlexBox,
   dividerStyle,
 } from './OrderCard.styled';
 import SharedGrid from '../shared/Grid/SharedGrid';
 import { UI_TEXT } from '../../constants/text';
-import { formatToShekels } from '../../utils/converting';
+import { addSignShekel } from '../../utils/converting';
 
 const OrderCard = ({ items = [], total = 0 }) => {
   if (items.length === 0) {
@@ -28,7 +27,7 @@ const OrderCard = ({ items = [], total = 0 }) => {
     <OrderCardContainer>
       <SharedGrid container direction="column">
         {items.map(({ _id, images, name, price }) => {
-          const shekelPrice = formatToShekels(price);
+          const shekelPrice = addSignShekel(price);
           return (
             <Grid key={_id}>
               <ItemCard>
@@ -52,7 +51,7 @@ const OrderCard = ({ items = [], total = 0 }) => {
           {UI_TEXT.CART_TOTAL}
         </SharedTypography>
         <SharedTypography variant="h6" fontWeight="bold">
-          {formatToShekels(total.toFixed(2))}
+          {addSignShekel(total.toFixed(2))}
         </SharedTypography>
       </SharedGrid>
     </OrderCardContainer>
