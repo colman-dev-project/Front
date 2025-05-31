@@ -1,3 +1,3 @@
-export class LOCAL_STORAGE_KEYS {
-
-}
+export const LOCAL_STORAGE_KEYS = {
+  CART_ITEMS: 'cart_items',
+};

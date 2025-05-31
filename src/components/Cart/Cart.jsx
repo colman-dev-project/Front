@@ -41,7 +41,7 @@ const Cart = ({
   }
 
   return (
-    
+
     <CartContainer>
       <CartTitle variant="h6">{UI_TEXT.CART_TITLE}</CartTitle>
       {isCartEmpty ? (
@@ -65,6 +65,7 @@ const Cart = ({
                     price={price}
                     rating={rating}
                     onSelect={() => {}}
+                    onRemove={() => handleItemRemove(id)}
                     disabled
                   />
                 ),
