@@ -11,6 +11,7 @@ import SharedButton from "../shared/Button/SharedButton";
 import SharedAlert from "../shared/Alert/SharedAlert";
 import SharedTypography from "../shared/Text";
 import { API_PATHS,AUTH_ERRORS } from '../../constants/auth.constants'
+import {ROUTER_PATHS} from '../../constants/routerPaths'
 
 const signupSchema = yup.object({
   name: yup.string().required(SIGNUP_TEXT.nameRequired),
@@ -47,7 +48,7 @@ export default function SignupForm() {
         throw new Error(data.error || AUTH_ERRORS.REGISTER_FAILED);
       }
 
-      navigate("/main");
+      navigate(ROUTER_PATHS.HOME); 
     } catch (err) {
       setServerError(err.message);
     }
