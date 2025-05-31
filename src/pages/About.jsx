@@ -8,12 +8,11 @@ import { motion } from 'framer-motion';
 
 import useScrollToTop from '../hooks/useScrollToTop';
 import styles from './About.styled';
-
-// קומפוננטות משותפות
 import SharedTypography from '../components/shared/Text/SharedText';
 import SharedButton from '../components/shared/Button/SharedButton';
 import SharedGrid from '../components/shared/Grid/SharedGrid';
 import { SharedImage } from '../components/shared/Image/SharedImage';
+import { ABOUT_TEXT } from '../constants/text';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -25,87 +24,70 @@ function About() {
 
   return (
     <Box maxWidth="lg" sx={{ mx: 'auto' }}>
-
-      {/* כותרת ראשית */}
       <Box component={motion.div} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} sx={{ ...styles.section, ...styles.grayBackground }}>
-        <SharedTypography variant="h4" style={styles.sectionTitle}>
-          Nice to meet you! 👋
+        <SharedTypography variant="h4" sx={styles.sectionTitle}>
+          {ABOUT_TEXT.TITLE}
         </SharedTypography>
 
         <Box sx={styles.iconText}>
           <InfoIcon />
-          <SharedTypography variant="h6">Who Are We?</SharedTypography>
+          <SharedTypography variant="h6">{ABOUT_TEXT.WHO_ARE_WE_TITLE}</SharedTypography>
         </Box>
 
-        <SharedTypography variant="body1" style={{ maxWidth: '700px', margin: 'auto' }}>
-          We are here to create a modern and secure shopping experience where you choose, pay, and collect anytime.
+        <SharedTypography variant="body1" sx={styles.sectionText}>
+          {ABOUT_TEXT.WHO_ARE_WE_DESC}
         </SharedTypography>
       </Box>
 
-      {/* תמונה */}
       <Box component={motion.div} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} sx={styles.imageBox}>
         <SharedImage src="/team-photo.jpg" alt="Team" style={styles.image} />
       </Box>
 
-      {/* למה לבחור בנו */}
       <Box component={motion.div} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} sx={{ ...styles.section, ...styles.grayBackground }}>
-        <SharedTypography variant="h5" style={styles.sectionTitle}>
-          Why Choose Us?
+        <SharedTypography variant="h5" sx={styles.sectionTitle}>
+          {ABOUT_TEXT.WHY_CHOOSE_US}
         </SharedTypography>
 
         <SharedGrid style={styles.gridContainer}>
           <Box sx={styles.card}>
-            <SharedTypography variant="h6" style={{ color: '#3f51b5' }}>
-              <LocationOnIcon /> Self Pickup Lockers
+            <SharedTypography variant="h6" sx={{ color: '#3f51b5' }}>
+              <LocationOnIcon /> {ABOUT_TEXT.PICKUP_LOCKERS}
             </SharedTypography>
-            <SharedTypography variant="body2">
-              Collect anytime – no delivery fees.
-            </SharedTypography>
+            <SharedTypography variant="body2">{ABOUT_TEXT.PICKUP_LOCKERS_DESC}</SharedTypography>
           </Box>
 
           <Box sx={styles.card}>
-            <SharedTypography variant="h6" style={{ color: '#3f51b5' }}>
-              <WatchLaterIcon /> 24/7 Availability
+            <SharedTypography variant="h6" sx={{ color: '#3f51b5' }}>
+              <WatchLaterIcon /> {ABOUT_TEXT.AVAILABILITY}
             </SharedTypography>
-            <SharedTypography variant="body2">
-              Our lockers are always open for you.
-            </SharedTypography>
+            <SharedTypography variant="body2">{ABOUT_TEXT.AVAILABILITY_DESC}</SharedTypography>
           </Box>
 
           <Box sx={styles.card}>
-            <SharedTypography variant="h6" style={{ color: '#3f51b5' }}>
-              <SecurityIcon /> User Privacy
+            <SharedTypography variant="h6" sx={{ color: '#3f51b5' }}>
+              <SecurityIcon /> {ABOUT_TEXT.PRIVACY}
             </SharedTypography>
-            <SharedTypography variant="body2">
-              Your data is protected with the latest technologies.
-            </SharedTypography>
+            <SharedTypography variant="body2">{ABOUT_TEXT.PRIVACY_DESC}</SharedTypography>
           </Box>
         </SharedGrid>
       </Box>
 
-      {/* מיקומי לוקרים */}
       <Box component={motion.div} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} sx={{ ...styles.section, ...styles.whiteBackground }}>
-        <SharedTypography variant="h5" style={styles.sectionTitle}>
-          Our Locker Locations 📍
+        <SharedTypography variant="h5" sx={styles.sectionTitle}>
+          {ABOUT_TEXT.LOCATIONS_TITLE}
         </SharedTypography>
 
         <List sx={{ maxWidth: 400, mx: 'auto' }}>
-          <ListItem>• Tel Aviv – Azrieli</ListItem>
-          <ListItem>• Jerusalem – Malha</ListItem>
-          <ListItem>• Haifa – Grand Canyon</ListItem>
-          <ListItem>• More locations across the country...</ListItem>
+          {ABOUT_TEXT.LOCATIONS.map((loc, i) => (
+            <ListItem key={i}>• {loc}</ListItem>
+          ))}
         </List>
       </Box>
 
-      {/* קריאה לפעולה */}
       <Box component={motion.div} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} sx={styles.ctaBox}>
-        <SharedTypography variant="h6">
-          Want to explore our locker network?
-        </SharedTypography>
-
-        <SharedButton label="View All Locations" style={styles.button} />
+        <SharedTypography variant="h6">{ABOUT_TEXT.CTA_TITLE}</SharedTypography>
+        <SharedButton label={ABOUT_TEXT.CTA_BUTTON} style={styles.button} />
       </Box>
-
     </Box>
   );
 }

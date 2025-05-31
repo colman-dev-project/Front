@@ -22,12 +22,13 @@ export default function SharedRanking({
   return (
     <RatingWrapper>
       {label && <span>{label}</span>}
+      {/* Temporarily disabled ranking stars */}
       <StyledRating
         name={RANKING_INPUT_NAME}
         value={value}
         onChange={handleChange}
         max={max}
-        readOnly={readOnly}
+        readOnly={true}
       />
     </RatingWrapper>
   );
