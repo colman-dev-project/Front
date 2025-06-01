@@ -23,10 +23,10 @@ import SharedTypography from '../shared/Text/SharedText.jsx';
 import SharedButton from '../shared/Button/SharedButton.jsx';
 import { Box } from '@mui/material';
 import { UI_TEXT } from '../../constants/text.js';
-import { convertToShekels } from '../../utils/converting.js';
+import { addSignShekel  } from '../../utils/converting.js';
 
 const ProductView = ({
-  image,
+  images,
   name,
   description,
   price,
@@ -38,14 +38,14 @@ const ProductView = ({
 }) => {
   return (
     <BigStyledCard>
-      <SharedImage src={image} alt={name} />
+      <SharedImage src={images} alt={name} />
 
       <CardContent>
         <SharedTypography variant="h5">{name}</SharedTypography>
 
         <SharedTypography variant="body2">{description}</SharedTypography>
 
-        <SharedTypography variant="h6"> {convertToShekels(price)}</SharedTypography>
+        <SharedTypography variant="h6"> {addSignShekel (price)}</SharedTypography>
 
         <Box style={ratingWrapperStyle}>
           <Rating value={rating} readOnly />
