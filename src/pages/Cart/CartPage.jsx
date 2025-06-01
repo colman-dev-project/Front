@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Cart from '../../components/Cart/Cart.jsx';
-import { useGetCartQuery } from '../../services/cartApi.js';
+import { useCart } from '../../hooks/useCart.js';
 
 const CartPage = () => {
-  const { data: cart = [], isLoading, error } = useGetCartQuery();
-
+  const { cart, setCart } = useCart();
   const total = cart.reduce((acc, item) => acc + item.price, 0);
 
   const handleContinue = () => {
     // TODO: Implement continue to checkout functionality
   };
 
+  const handleRemove = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
+
   return (
     <Cart
       items={cart}
       total={total}
-      isLoading={isLoading}
-      isError={!!error}
       onContinue={handleContinue}
+      handleItemRemove={handleRemove}
     />
   );
 };

@@ -28,8 +28,9 @@ export const UI_TEXT = {
   PRODUCT_NAME: 'Product Name',
   CART_LOADING: 'Loading...',
   CART_LOGIN_REQUIRED: 'Please log in to continue your purchase.',
-  CART_ERROR: 'Error loading cart',
+  CART_ERROR: 'Error loading cart. Please try again.',
   NEWEST_PRODUCTS: 'Newest Products',
+  CART_REMOVE: 'Remove from Cart',
   NO_ITEMS_IN_CART: 'No items in your cart',
   ADD_PRODUCT: 'Add Product.',
   UPLOAD_PRODUCT: 'Upload a new product to Locker It.',
@@ -83,3 +84,6 @@ export const PAYMENT_TEXT = {
   submit: "Pay Now",
 };
 
+export const CART_TEXT = {
+  REMOVE_BUTTON: 'Remove',
+};
