@@ -84,3 +84,6 @@ export const PAYMENT_TEXT = {
   submit: "Pay Now",
 };
 
+export const CART_TEXT = {
+  REMOVE_BUTTON: 'Remove',
+};

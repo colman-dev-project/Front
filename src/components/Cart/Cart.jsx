@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductCard from '../Product/ProductCard';
 import SharedGrid from '../shared/Grid/SharedGrid';
-import { UI_TEXT } from '../../constants/text';
+import { CART_TEXT, UI_TEXT } from '../../constants/text';
 import {
   CartContainer,
   CartTitle,
@@ -70,7 +70,7 @@ const Cart = ({
                     />
                     <RemoveButtonWrapper>
                       <PurchaseButton onClick={() => handleItemRemove(id)}>
-                        Remove
+                        {CART_TEXT.REMOVE_BUTTON}
                       </PurchaseButton>
                     </RemoveButtonWrapper>
                   </CartItemWrapper>
