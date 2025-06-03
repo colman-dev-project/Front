@@ -25,3 +25,9 @@ export const STORAGE_KEYS = {
 export const ROUTES = {
   LOGIN: '/login',
 };
+
+export const API_PATHS = {
+  LOGIN: '/api/v1/login',
+  REGISTER: '/api/v1/register',
+  LOGOUT: '/api/v1/logout',
+};
