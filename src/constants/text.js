@@ -30,6 +30,11 @@ export const UI_TEXT = {
   CART_LOGIN_REQUIRED: 'Please log in to continue your purchase.',
   CART_ERROR: 'Error loading cart. Please try again.',
   NEWEST_PRODUCTS: 'Newest Products',
+  CART_REMOVE: 'Remove from Cart',
+  NO_ITEMS_IN_CART: 'No items in your cart',
+  ADD_PRODUCT: 'Add Product.',
+  UPLOAD_PRODUCT: 'Upload a new product to Locker It.',
+  VIEW_ANALYTICS: 'View your products, orders, and analytics.',
 };
 
 export const LOGIN_TEXT = {
@@ -61,4 +66,24 @@ export const SIGNUP_TEXT = {
   passwordRequired: 'Password is required',
   confirmPasswordRequired: 'Please confirm your password',
   passwordMismatch: 'Passwords do not match',
+};
+
+export const PAYMENT_TEXT = {
+  title: "Payment Details",
+  cardNumberLabel: "Card Number",
+  cardNumberRequired: "Card number is required",
+  cardNumberInvalid: "Card number must be 16 digits",
+  expiryLabel: "Expiry (MM/YY)",
+  expiryRequired: "Expiry date is required",
+  expiryInvalid: "Expiry must be in MM/YY format",
+  cvvLabel: "CVV",
+  cvvRequired: "CVV is required",
+  cvvInvalid: "CVV must be 3 or 4 digits",
+  cardHolderLabel: "Cardholder Name",
+  cardHolderRequired: "Cardholder name is required",
+  submit: "Pay Now",
+};
+
+export const CART_TEXT = {
+  REMOVE_BUTTON: 'Remove',
 };

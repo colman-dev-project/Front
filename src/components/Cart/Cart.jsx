@@ -1,13 +1,14 @@
 import React from 'react';
-import Divider from '@mui/material/Divider';
 import ProductCard from '../Product/ProductCard';
 import SharedGrid from '../shared/Grid/SharedGrid';
-import { UI_TEXT } from '../../constants/text';
+import { CART_TEXT, UI_TEXT } from '../../constants/text';
 import {
   CartContainer,
   CartTitle,
   CartRow,
   EmptyCartText,
+  RemoveButtonWrapper,
+  CartItemWrapper,
 } from './Cart.styles';
 import PurchaseButton from '../shared/Button/purchaseButton/PurchaseButton.jsx';
 import CustomDivider from '../shared/Divider/CustomDivider.jsx';
@@ -16,6 +17,7 @@ const Cart = ({
   items,
   total,
   onContinue,
+  handleItemRemove,
   isLoading = false,
   isError = false,
   isLoggedIn = true,
@@ -47,25 +49,34 @@ const Cart = ({
       ) : (
         <>
           <SharedGrid
-            items={validItems.map(({ id, image, name, price, rating, ...rest }) => ({
-              ...rest,
-              id,
-              image,
-              name,
-              price,
-              rating,
-              description: (
-                <ProductCard
-                  id={id}
-                  image={image}
-                  name={name}
-                  price={price}
-                  rating={rating}
-                  onSelect={() => {}}
-                  disabled
-                />
-              ),
-            }))}
+            items={validItems.map(
+              ({ id, image, name, price, rating, ...rest }) => ({
+                ...rest,
+                id,
+                image,
+                name,
+                price,
+                rating,
+                description: (
+                  <CartItemWrapper>
+                    <ProductCard
+                      id={id}
+                      image={image}
+                      name={name}
+                      price={price}
+                      rating={rating}
+                      onSelect={() => {}}
+                      disabled
+                    />
+                    <RemoveButtonWrapper>
+                      <PurchaseButton onClick={() => handleItemRemove(id)}>
+                        {CART_TEXT.REMOVE_BUTTON}
+                      </PurchaseButton>
+                    </RemoveButtonWrapper>
+                  </CartItemWrapper>
+                ),
+              }),
+            )}
             columns={1}
             spacing={2}
             justifyContent="center"
@@ -76,7 +87,7 @@ const Cart = ({
             <CartTitle as="span" variant="body1">
               {UI_TEXT.CART_TOTAL}
             </CartTitle>
-            <CartTitle as="span" variant="body1" >
+            <CartTitle as="span" variant="body1">
               {total} ₪
             </CartTitle>
           </CartRow>
