@@ -12,6 +12,7 @@ import SharedAlert from "../shared/Alert/SharedAlert";
 import SharedTypography from "../shared/Text";
 import { API_PATHS,AUTH_ERRORS } from '../../constants/auth.constants'
 import {ROUTER_PATHS} from '../../constants/routerPaths'
+import { HTTP_METHODS } from "../../constants/httpMethods";
 
 const signupSchema = yup.object({
   name: yup.string().required(SIGNUP_TEXT.nameRequired),
@@ -38,7 +39,7 @@ export default function SignupForm() {
     try {
       setServerError("");
       const res = await fetch(API_PATHS.REGISTER, {
-        method: "POST",
+        method: HTTP_METHODS.POST,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
