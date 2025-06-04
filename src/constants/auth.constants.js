@@ -16,6 +16,10 @@ export const AUTH_ERRORS = {
   GENERAL_LOGOUT_ERROR: 'General logout error',
   UNAUTHORIZED_LOGIN: 'Invalid username or password',
   UNAUTHORIZED_LOGOUT: 'User is not logged in',
+  USER_REGISTERED_SUCCESS: 'User registered successfully',
+  USER_NOT_FOUND: 'User not found',
+  INVALID_INPUT: 'Invalid input data',
+  REGISTER_FAILED: 'Registration failed',
 };
 
 export const STORAGE_KEYS = {
@@ -24,4 +28,10 @@ export const STORAGE_KEYS = {
 
 export const ROUTES = {
   LOGIN: '/login',
+};
+
+export const API_PATHS = {
+  LOGIN: '/api/v1/login',
+  REGISTER: '/api/v1/register',
+  LOGOUT: '/api/v1/logout',
 };
