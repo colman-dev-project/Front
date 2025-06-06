@@ -16,10 +16,10 @@ export const AUTH_ERRORS = {
   GENERAL_LOGOUT_ERROR: 'General logout error',
   UNAUTHORIZED_LOGIN: 'Invalid username or password',
   UNAUTHORIZED_LOGOUT: 'User is not logged in',
-};
-
-export const STORAGE_KEYS = {
-  TOKEN: 'token',
+  LOGIN_FAILED: 'login failed',
+  LOGIN_ERROR: 'Login error:',
+  FAILED_DECODE_JWT: 'Failed to decode JWT:',
+  INVALID_TOKEN: 'Invalid token. Auth not restored.',
 };
 
 export const ROUTES = {
@@ -30,4 +30,9 @@ export const API_PATHS = {
   LOGIN: '/api/v1/login',
   REGISTER: '/api/v1/register',
   LOGOUT: '/api/v1/logout',
+};
+
+export const USER_TOKEN_FIELDS = {
+  ID: 'userId',
+  USERNAME: 'username',
 };

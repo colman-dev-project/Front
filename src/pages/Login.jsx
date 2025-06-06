@@ -1,35 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginForm from '../components/Forms/LoginForm';
-import authStorageService from '../../services/authStorageService';
-import { useLoginMutation } from '../features/api/apiSlice';
-import SharedTypography from '../components/shared/Text/SharedText';
+import { useLoginUserMutation } from '../services/authApi';
 import { ROUTES } from '../constants/routerPaths';
-import {
-  AUTH_ERRORS,
-  AUTH_RESPONSE_KEYS,
-} from '../constants/auth.constants'; 
+import LoginForm from '../components/Forms/LoginForm';
+import SharedTypography from '../components/shared/Text/SharedText';
+import { AUTH_ERRORS } from '../constants/auth.constants';
 
 export default function LoginPage() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const [login, { isLoading }] = useLoginMutation();
+  const [loginUser, { isLoading }] = useLoginUserMutation();
 
-  const handleLogin = async (data) => {
+  const handleLogin = async (formData) => {
     try {
-      const response = await login(data).unwrap();
-      const token = response[AUTH_RESPONSE_KEYS.TOKEN];
+      await loginUser(formData).unwrap();
 
-      if (!token) {
-        throw new Error(AUTH_ERRORS.INVALID_LOGIN_RESPONSE);
-      }
-
-      authStorageService.setToken(token);
       setError('');
-      navigate(ROUTES.HOME); 
+      navigate(ROUTES.HOME);
     } catch (err) {
-      console.error('Login error:', err);
+      console.error(AUTH_ERRORS.LOGIN_ERROR, err);
       const message =
         err?.data?.error ||
         err?.data?.message ||
@@ -41,7 +31,7 @@ export default function LoginPage() {
 
   return (
     <div>
-      <LoginForm onSubmit={handleLogin} />
+      <LoginForm onSubmit={handleLogin} isLoading={isLoading} />
       {error && <SharedTypography>{error}</SharedTypography>}
     </div>
   );
