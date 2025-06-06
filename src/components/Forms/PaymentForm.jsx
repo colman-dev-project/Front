@@ -10,7 +10,7 @@ import {
   CARD_NUMBER_REGEX,
   EXPIRY_REGEX,
   CVV_REGEX,
-} from '../../utils/regex.js';
+} from '../../constants/regex.js';
 import SharedTypography from '../shared/Text/SharedText.jsx';
 
 const paymentSchema = yup.object({
