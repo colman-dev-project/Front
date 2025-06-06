@@ -28,3 +28,14 @@ export const EmptyCartText = styled(Box)(({ theme }) => ({
   textAlign: 'center',
   padding: theme.spacing(8, 0),
 }));
+
+export const CartItemWrapper = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(2),
+}));
+
+export const RemoveButtonWrapper = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'flex-end',
+}));

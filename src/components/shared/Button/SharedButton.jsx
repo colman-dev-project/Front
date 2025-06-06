@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyledButton } from './Button.styles';
 
-function SharedButton({ label, style = {}, ...rest }) {
+function SharedButton({ label, children, style = {}, ...rest }) {
   return (
     <StyledButton sx={style} {...rest}>
-      {label}
+      {children || label}
     </StyledButton>
   );
 }

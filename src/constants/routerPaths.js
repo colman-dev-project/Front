@@ -8,8 +8,10 @@ export const ROUTES = {
   LOGIN: '/auth/login',
   REGISTER: '/auth/register',
   ORDER_PROCESS: '/orderProcess',
-  MANAGE_PAGE: '/managerPage',
+  MANAGER_PAGE: '/managerPage',
   CUSTOMER_PAGE: '/customerPage',
   PRODUCT_DETAILS: '/products/:id',
-  CART: '/cart'
+  CART: '/cart',
+  DASHBOARD_CARDS: '/dashboardCards',
+  ADD_PRODUCT: '/dashboardCards/newproduct',
 };
