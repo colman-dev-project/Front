@@ -14,7 +14,6 @@ import {
 import { UI_TEXT } from '../../constants/text';
 
 import OrderSummary from './steps/OrderSummary';
-import CustomerDetails from './steps/CustomerDetails';
 import PaymentDetails from './steps/PaymentDetails';
 import OrderComplete from './steps/OrderComplete';
 import SharedButton from '../shared/Button/SharedButton';
@@ -23,14 +22,12 @@ import { ROUTES as ROUTER_PATHS } from '../../constants/routerPaths.js';
 
 const stepComponents = [
   <OrderSummary />,
-  <CustomerDetails />,
   <PaymentDetails />,
   <OrderComplete />,
 ];
 
 const steps = [
   'Order Summary',
-  'Customer Details',
   'Payment Details',
   'Order Complete',
 ];
