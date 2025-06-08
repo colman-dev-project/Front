@@ -16,3 +16,12 @@ export const TitleWrapper = styled(Box)(({ theme }) => ({
 export const FormWrapper = styled(Box)({
   width: '100%',
 });
+
+export const FileUploadWrapper = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(1.5),
+  border: `1px solid ${theme.palette.divider}`,
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: theme.palette.background.paper,
+  display: 'flex',
+  flexDirection: 'column',
+}));

@@ -84,6 +84,20 @@ export const PAYMENT_TEXT = {
   submit: "Pay Now",
 };
 
+export const PRODUCT_TEXT = {
+   title: 'Add New Product',
+  nameLabel: 'Product Name',
+  descriptionLabel: 'Description',
+  priceLabel: 'Price (₪)',
+  categoryLabel: 'Category',
+  imageLabel: 'Image URL',
+  submit: 'Create Product',
+  nameRequired: 'Product name is required',
+  priceRequired: 'Price is required',
+  categoryRequired: 'Category is required',
+  pricePositive: 'Price must be a positive number',
+}
+
 export const CART_TEXT = {
   REMOVE_BUTTON: 'Remove',
 };

@@ -12,6 +12,7 @@ import CartPage from './pages/Cart/CartPage.jsx';
 import LoginForm from './components/Forms/LoginForm.jsx';
 import SignupForm from './components/Forms/SignUpForm.jsx';
 import DashboardCards from './pages/DashboardCards/DashboardCards.jsx';
+import NewProductForm from './components/Forms/NewProductForm.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,8 @@ const router = createBrowserRouter([
       { path: ROUTES.LOGIN, element: <LoginForm /> },
       { path: ROUTES.REGISTER, element: <SignupForm /> },
       { path: ROUTES.DASHBOARD_CARDS, element: <DashboardCards /> },
+      { path: ROUTES.NEW_PRODUCT, element: <NewProductForm /> },
+
     ],
   },
 ]);
