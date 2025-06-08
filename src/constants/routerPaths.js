@@ -14,4 +14,5 @@ export const ROUTES = {
   CART: '/cart',
   DASHBOARD_CARDS: '/dashboardCards',
   ADD_PRODUCT: '/dashboardCards/newproduct',
+  NEW_PRODUCT: '/products/new'
 };
