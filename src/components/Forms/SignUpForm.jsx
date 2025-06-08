@@ -8,6 +8,7 @@ import { StyledPaper, TitleWrapper, FormWrapper } from "./Form.styled";
 import SharedGrid from '../shared/Grid/SharedGrid.jsx';
 import SharedButton from '../shared/Button/SharedButton.jsx';
 import SharedLinkButton from "../shared/Button/SharedLinkButton.jsx";
+import { ROUTES } from "../../constants/routerPaths.js";
 
 const signupSchema = yup.object({
   name: yup.string().required(SIGNUP_TEXT.nameRequired),
@@ -87,7 +88,7 @@ export default function SignupForm({ onSubmit }) {
             </SharedButton>
 
             <SharedLinkButton
-            to="/auth/login"
+            to={ROUTES.LOGIN}
             variant="text"
             size="small"
             fullWidth
