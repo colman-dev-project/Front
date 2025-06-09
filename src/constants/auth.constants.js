@@ -20,8 +20,17 @@ export const AUTH_ERRORS = {
 
 export const STORAGE_KEYS = {
   TOKEN: 'token',
+  LOGIN_FAILED: 'login failed',
+  LOGIN_ERROR: 'Login error:',
+  FAILED_DECODE_JWT: 'Failed to decode JWT:',
+  INVALID_TOKEN: 'Invalid token. Auth not restored.',
 };
 
 export const ROUTES = {
   LOGIN: '/login',
+};
+
+export const USER_TOKEN_FIELDS = {
+  ID: 'userId',
+  USERNAME: 'username',
 };
