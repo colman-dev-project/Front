@@ -7,9 +7,6 @@ import { ThemeProvider } from '@mui/system';
 import theme from './theme/theme';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import { initializeAuth } from './utils/jwt';
-
-initializeAuth(store);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

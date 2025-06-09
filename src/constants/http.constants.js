@@ -5,6 +5,7 @@ export const STORAGE_KEYS = {
 
 export const HEADERS = {
   AUTHORIZATION: 'Authorization',
+  BEARER: 'Bearer',
 };
 
 export const ROUTES = {
