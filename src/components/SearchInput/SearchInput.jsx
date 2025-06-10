@@ -1,13 +1,18 @@
-import React from 'react';
-import { Input } from './SearchInput.styled';
+import React from "react";
+import TextField from "@mui/material/TextField";
+import { inputStyles } from "./SearchInput.styled";
+import { PLACEHOLDERS } from "../../constants/text";
 
-const SearchInput = ({ value, onChange, placeholder = "Search..." }) => {
+const SearchInput = ({ value, onChange, placeholder = PLACEHOLDERS.SEARCH, sx = {} }) => {
   return (
-    <Input
-      type="text"
+    <TextField
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
+      variant="outlined"
+      size="small"
+      fullWidth
+      sx={{ ...inputStyles, ...sx }}
     />
   );
 };

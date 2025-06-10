@@ -87,3 +87,7 @@ export const PAYMENT_TEXT = {
 export const CART_TEXT = {
   REMOVE_BUTTON: 'Remove',
 };
+
+export const PLACEHOLDERS = {
+  SEARCH: "Search...",
+};

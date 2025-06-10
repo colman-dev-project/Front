@@ -1,16 +1,13 @@
-// components/SearchInput/SearchInput.styled.js
-import styled from 'styled-components';
-
-export const Input = styled.input`
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  width: 100%;
-  max-width: 300px;
-
-  &:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-`;
+export const inputStyles = {
+  maxWidth: 300,
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "6px",
+    fontSize: "16px",
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#ccc",
+  },
+  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#007bff",
+  },
+};
