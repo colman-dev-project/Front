@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledButton } from './ButtonWithIcon.styled'; // יבוא את הסטייל מהקובץ
+import { StyledButton } from './ButtonWithIcon.styled'; 
 
 const ButtonWithIcon = ({ icon, text, onClick, ...rest }) => {
   return (
