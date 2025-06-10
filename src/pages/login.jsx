@@ -9,10 +9,13 @@ import { AUTH_ERRORS } from '../constants/auth.constants';
 export default function LoginPage() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
   const [loginUser, { isLoading }] = useLoginUserMutation();
+
   const handleLogin = async (formData) => {
     try {
       await loginUser(formData).unwrap();
+
       setError('');
       navigate(ROUTES.HOME);
     } catch (err) {
