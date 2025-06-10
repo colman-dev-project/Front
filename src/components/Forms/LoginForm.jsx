@@ -4,17 +4,17 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import SharedButton from '../shared/Button/SharedButton';
+import SharedLinkButton from '../shared/Button/SharedLinkButton';
 import SharedGrid from '../shared/Grid/SharedGrid';
 import { LOGIN_TEXT } from '../../constants/text';
 import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled';
+import { ROUTES } from "../../constants/routerPaths.js";
 
 const loginSchema = yup.object({
   username: yup.string().required(LOGIN_TEXT.usernameRequired),
   password: yup.string().required(LOGIN_TEXT.passwordRequired),
 });
 
-
-//const user = api.login("")
 export default function LoginForm({ onSubmit }) {
   const {
     register,
@@ -59,6 +59,15 @@ export default function LoginForm({ onSubmit }) {
           >
             {LOGIN_TEXT.submit}
           </SharedButton>
+
+          <SharedLinkButton
+            to={ROUTES.REGISTER}
+            variant="text"
+            size="small"
+            fullWidth
+          >
+            {LOGIN_TEXT.signupLinkText}
+          </SharedLinkButton>
         </Stack>
       </FormWrapper>
     </StyledPaper>

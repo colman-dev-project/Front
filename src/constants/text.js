@@ -47,6 +47,7 @@ export const LOGIN_TEXT = {
   passwordRequired: 'Password is required',
   usernameLabel: 'Username',
   usernameRequired: 'Username is required',
+  signupLinkText: "Don't have an account? Sign up",
 };
 
 export const SIGNUP_TEXT = {
@@ -66,6 +67,7 @@ export const SIGNUP_TEXT = {
   passwordRequired: 'Password is required',
   confirmPasswordRequired: 'Please confirm your password',
   passwordMismatch: 'Passwords do not match',
+  loginLinkText: "Already have an account? Login here",
 };
 
 export const ABOUT_TEXT = {
