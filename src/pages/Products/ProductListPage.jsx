@@ -25,7 +25,7 @@ const ProductListPage = () => {
   return (
     <Grid container spacing={3} style={containerStyle}>
       {products.map((p) => (
-        <Grid key={p.id}>
+        <Grid key={p._id}>
           <ProductCard {...p} id={p._id} onSelect={handleSelect} />
         </Grid>
       ))}
