@@ -4,6 +4,8 @@ import ProductView from '../../components/Product/ProductView.jsx';
 import ProductSkeleton from '../../components/Product/ProductSkeleton.jsx';
 import { useGetProductByIdQuery } from '../../services/productApi.js';
 import { useAddToCartMutation } from '../../services/cartApi.js';
+import { StyledSharedTypography } from '../../components/Product/Product.styled.js';
+import { ERROR_MESSAGES } from '../../constants/errors.js';
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -22,6 +24,22 @@ const ProductPage = () => {
 
   if (isLoading) {
     return <ProductSkeleton />;
+  }
+  if (error) {
+    return (
+      <StyledSharedTypography color="error">
+        {ERROR_MESSAGES.FAILED_TO_LOAD_PRODUCTS}
+      </StyledSharedTypography>
+    );
+  }
+
+
+  if (!product) {
+    return (
+      <StyledSharedTypography color="error">
+        {ERROR_MESSAGES.PRODUCT_NOT_FOUND}
+      </StyledSharedTypography>
+    );
   }
 
   return <ProductView {...product} handleAddToCart={handleAddToCart} />;

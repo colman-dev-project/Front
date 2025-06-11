@@ -4,9 +4,6 @@ import {
   CardActions,
   CardContent,
   Divider,
-  List,
-  ListItem,
-  ListItemText,
   Rating,
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -25,7 +22,6 @@ const ProductView = ({
   rating,
   reviewCount,
   lockerLocation,
-  reviews,
   handleAddToCart,
 }) => {
   return (
@@ -38,7 +34,6 @@ const ProductView = ({
         <SharedTypography variant="body2">{description}</SharedTypography>
 
         <SharedTypography variant="h6">
-          {' '}
           {addSignShekel(price)}
         </SharedTypography>
 
@@ -64,19 +59,7 @@ const ProductView = ({
 
       <Divider />
 
-      <CardContent>
-        <SharedTypography variant="subtitle1">
-          Customer Reviews:
-        </SharedTypography>
-        <List>
-          {Array.isArray(reviews) &&
-            reviews.map((rev) => (
-              <ListItem key={rev.id}>
-                <ListItemText primary={`${rev.name}: "${rev.text}"`} />
-              </ListItem>
-            ))}
-        </List>
-      </CardContent>
+
     </BigStyledCard>
   );
 };
