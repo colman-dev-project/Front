@@ -2,12 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import ProductView from '../../components/Product/ProductView.jsx';
 import ProductSkeleton from '../../components/Product/ProductSkeleton.jsx';
-import { useProduct } from '../../hooks/useMockProduct.js';
+import { useGetProductByIdQuery } from '../../services/productApi.js';
 import { useAddToCartMutation } from '../../services/cartApi.js';
 
 const ProductPage = () => {
   const { id } = useParams();
-  const { product, isLoading } = useProduct(id);
+  const { data: product, isLoading, error } = useGetProductByIdQuery(id);
 
   const [AddToCart] = useAddToCartMutation();
 
