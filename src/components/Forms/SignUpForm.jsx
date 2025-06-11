@@ -8,15 +8,24 @@ import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled';
 import SharedButton from '../shared/Button/SharedButton';
 import SharedLinkButton from '../shared/Button/SharedLinkButton';
 import { ROUTES } from '../../constants/routerPaths';
+import { SIGN_UP_CONSTANTS } from '../../constants/signUp.constant.js';
 
 const signupSchema = yup.object({
-  name: yup.string().required(SIGNUP_TEXT.nameRequired),
-  username: yup.string().required(SIGNUP_TEXT.usernameRequired),
-  email: yup.string().email(SIGNUP_TEXT.invalidEmail).required(SIGNUP_TEXT.emailRequired),
-  password: yup.string().min(6, SIGNUP_TEXT.passwordMin).required(SIGNUP_TEXT.passwordRequired),
-  confirmPassword: yup
+  [SIGN_UP_CONSTANTS.NAME]: yup.string().required(SIGNUP_TEXT.nameRequired),
+  [SIGN_UP_CONSTANTS.USERNAME]: yup
     .string()
-    .oneOf([yup.ref("password")], SIGNUP_TEXT.passwordMismatch)
+    .required(SIGNUP_TEXT.usernameRequired),
+  [SIGN_UP_CONSTANTS.EMAIL]: yup
+    .string()
+    .email(SIGNUP_TEXT.invalidEmail)
+    .required(SIGNUP_TEXT.emailRequired),
+  [SIGN_UP_CONSTANTS.PASSWORD]: yup
+    .string()
+    .min(SIGN_UP_CONSTANTS.PASSWORD_MIN_LENGTH, SIGNUP_TEXT.passwordMin)
+    .required(SIGNUP_TEXT.passwordRequired),
+  [SIGN_UP_CONSTANTS.CONFIRM_PASSWORD]: yup
+    .string()
+    .oneOf([yup.ref(SIGN_UP_CONSTANTS.PASSWORD)], SIGNUP_TEXT.passwordMismatch)
     .required(SIGNUP_TEXT.confirmPasswordRequired),
 });
 
@@ -32,13 +41,17 @@ export default function SignUpForm({ onSubmit, isLoading }) {
       <TitleWrapper>
         <h2>{SIGNUP_TEXT.title}</h2>
       </TitleWrapper>
-      <FormWrapper component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <FormWrapper
+        component="form"
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+      >
         <Stack spacing={2}>
           <TextField
             label={SIGNUP_TEXT.nameLabel}
             fullWidth
             variant="outlined"
-            {...register('name')}
+            {...register(SIGN_UP_CONSTANTS.NAME)}
             error={!!errors.name}
             helperText={errors.name?.message}
           />
@@ -46,7 +59,7 @@ export default function SignUpForm({ onSubmit, isLoading }) {
             label={SIGNUP_TEXT.usernameLabel}
             fullWidth
             variant="outlined"
-            {...register('username')}
+            {...register(SIGN_UP_CONSTANTS.USERNAME)}
             error={!!errors.username}
             helperText={errors.username?.message}
           />
@@ -54,7 +67,7 @@ export default function SignUpForm({ onSubmit, isLoading }) {
             label={SIGNUP_TEXT.emailLabel}
             fullWidth
             variant="outlined"
-            {...register('email')}
+            {...register(SIGN_UP_CONSTANTS.EMAIL)}
             error={!!errors.email}
             helperText={errors.email?.message}
           />
@@ -63,7 +76,7 @@ export default function SignUpForm({ onSubmit, isLoading }) {
             type="password"
             fullWidth
             variant="outlined"
-            {...register('password')}
+            {...register(SIGN_UP_CONSTANTS.PASSWORD)}
             error={!!errors.password}
             helperText={errors.password?.message}
           />
@@ -72,7 +85,7 @@ export default function SignUpForm({ onSubmit, isLoading }) {
             type="password"
             fullWidth
             variant="outlined"
-            {...register('confirmPassword')}
+            {...register(SIGN_UP_CONSTANTS.CONFIRM_PASSWORD)}
             error={!!errors.confirmPassword}
             helperText={errors.confirmPassword?.message}
           />
