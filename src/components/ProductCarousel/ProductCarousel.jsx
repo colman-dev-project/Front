@@ -50,7 +50,7 @@ const ProductCarousel = ({ products }) => {
       <Slider {...settings}>
         {products.map((product) => (
           <div key={product._id}>
-            <ProductCard {...product} id={product._id} onSelect={handleProductClick} />
+            <ProductCard {...product} onSelect={() => handleProductClick(product._id)} />
           </div>
         ))}
       </Slider>

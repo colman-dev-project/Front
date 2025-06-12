@@ -7,7 +7,7 @@ import { SharedImage } from '../shared/Image/SharedImage.jsx';
 import { addSignShekel  } from '../../utils/converting.js';
 
 const ProductCard = ({
-  id,
+  _id,
   images,
   name,
   price,
@@ -17,7 +17,7 @@ const ProductCard = ({
 }) => {
   return (
     <StyledCard {...props}>
-      <CardActionArea onClick={() => onSelect(id)}>
+      <CardActionArea onClick={() => onSelect(_id)}>
         <SharedImage src={images} alt={name} />
 
         <CardContent>
