@@ -3,12 +3,15 @@ import { TextField, Stack } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+
 import { SIGNUP_TEXT } from '../../constants/text';
-import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled';
+import { SIGN_UP_CONSTANTS } from '../../constants/signUp.constant.js';
+import { ROUTES } from '../../constants/routerPaths';
+
 import SharedButton from '../shared/Button/SharedButton';
 import SharedLinkButton from '../shared/Button/SharedLinkButton';
-import { ROUTES } from '../../constants/routerPaths';
-import { SIGN_UP_CONSTANTS } from '../../constants/signUp.constant.js';
+
+import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled';
 
 const signupSchema = yup.object({
   [SIGN_UP_CONSTANTS.NAME]: yup.string().required(SIGNUP_TEXT.nameRequired),
