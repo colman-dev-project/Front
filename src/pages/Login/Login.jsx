@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoginUserMutation } from '../../services/authApi.js';
 import { ROUTES } from '../../constants/routerPaths.js';
+import { AUTH_ERRORS } from '../../constants/auth.constants.js';
 import LoginForm from '../../components/Forms/LoginForm.jsx';
 import SharedTypography from '../../components/shared/Text/SharedText.jsx';
-import { AUTH_ERRORS } from '../../constants/auth.constants.js';
 
 export default function LoginPage() {
   const [error, setError] = useState('');
