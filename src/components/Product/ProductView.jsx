@@ -23,8 +23,8 @@ const ProductView = ({
   reviewCount,
   lockerLocation,
   handleAddToCart,
-}) => {
-  return (
+}) => (
+
     <BigStyledCard>
       <SharedImage src={images} alt={name} />
 
@@ -61,7 +61,7 @@ const ProductView = ({
 
 
     </BigStyledCard>
-  );
-};
+
+);
 
 export default ProductView;
