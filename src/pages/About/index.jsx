@@ -6,13 +6,13 @@ import SecurityIcon from '@mui/icons-material/Security';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import { motion } from 'framer-motion';
 
-import useScrollToTop from '../hooks/useScrollToTop';
-import styles from './About.styled';
-import SharedTypography from '../components/shared/Text/SharedText';
-import SharedButton from '../components/shared/Button/SharedButton';
-import SharedGrid from '../components/shared/Grid/SharedGrid';
-import { SharedImage } from '../components/shared/Image/SharedImage';
-import { ABOUT_TEXT } from '../constants/text';
+import useScrollToTop from '../../hooks/useScrollToTop.js';
+import styles from './About.styled.js';
+import SharedTypography from '../../components/shared/Text/SharedText.jsx';
+import SharedButton from '../../components/shared/Button/SharedButton.jsx';
+import SharedGrid from '../../components/shared/Grid/SharedGrid.jsx';
+import { SharedImage } from '../../components/shared/Image/SharedImage.jsx';
+import { ABOUT_TEXT } from '../../constants/text.js';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
