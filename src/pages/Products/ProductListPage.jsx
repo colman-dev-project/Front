@@ -1,11 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid, CircularProgress, Typography } from '@mui/material';
+import { CircularProgress, Grid } from '@mui/material';
 import ProductCard from '../../components/Product/ProductCard.jsx';
-import { useProducts } from '../../hooks/useMockProducts.js';
 import { ROUTES } from '../../constants/routerPaths.js';
 import SharedTypography from '../../components/shared/Text/SharedText.jsx';
-import { spinnerStyle, containerStyle } from './ProductListPage.styled.js';
+import { containerStyle, spinnerStyle } from './ProductListPage.styled.js';
 import { UI_TEXT } from '../../constants/text.js';
 import { useGetProductsQuery } from '../../services/productApi.js';
 
@@ -26,7 +25,7 @@ const ProductListPage = () => {
   return (
     <Grid container spacing={3} style={containerStyle}>
       {products.map((p) => (
-        <Grid key={p.id}>
+        <Grid key={p._id}>
           <ProductCard {...p} onSelect={handleSelect} />
         </Grid>
       ))}
