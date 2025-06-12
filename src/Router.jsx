@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from './constants/routerPaths';
 import App from './App';
 import Home from './pages/Home/Home.jsx';
-import About from './pages/About.jsx';
+import About from './pages/About';
 import OrderProcess from './pages/OrderProcess/OrderProcess.jsx';
 import ProductPage from './pages/Product/ProductPage.jsx';
 import ProductListPage from './pages/Products/ProductListPage.jsx';
