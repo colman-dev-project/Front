@@ -49,8 +49,8 @@ const ProductCarousel = ({ products }) => {
     <CarouselWrapper>
       <Slider {...settings}>
         {products.map((product) => (
-          <div key={product._id}>
-            <ProductCard {...product} onSelect={() => handleProductClick(product._id)} />
+          <div key={product.id}>
+            <ProductCard {...product} onSelect={() => handleProductClick(product.id)} />
           </div>
         ))}
       </Slider>

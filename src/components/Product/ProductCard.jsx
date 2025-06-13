@@ -4,10 +4,10 @@ import { StyledCard } from './Product.styled.js';
 import { UI_TEXT } from '../../constants/text';
 import SharedTypography from '../shared/Text/SharedText.jsx';
 import { SharedImage } from '../shared/Image/SharedImage.jsx';
-import { addSignShekel  } from '../../utils/converting.js';
+import { addSignShekel } from '../../utils/converting.js';
 
 const ProductCard = ({
-  _id,
+  id,
   images,
   name,
   price,
@@ -17,16 +17,16 @@ const ProductCard = ({
 }) => {
   return (
     <StyledCard {...props}>
-      <CardActionArea onClick={() => onSelect(_id)}>
+      <CardActionArea onClick={onSelect}>
         <SharedImage src={images} alt={name} />
 
         <CardContent>
           <SharedTypography variant={UI_TEXT.SUBTITLE1_VARIANT}>
-            {UI_TEXT.NAME}
+            {name}
           </SharedTypography>
 
           <SharedTypography variant="body2">
-            {addSignShekel (price)}
+            {addSignShekel(price)}
           </SharedTypography>
 
           <Rating value={rating} readOnly size="small" />
