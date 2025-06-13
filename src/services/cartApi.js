@@ -1,27 +1,28 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { BASE_URL } from '../constants/routerPaths';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import { baseQueryWithReauth } from './baseQueryWithReauth';
 import { ROUTES } from '../constants/routerPaths';
 import { HTTP_METHODS } from '../constants/httpMethods';
 
 export const cartApi = createApi({
   reducerPath: 'cartApi',
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_SERVER_URL }),
+  baseQuery: baseQueryWithReauth,
   endpoints: (builder) => ({
-    AddToCart: builder.mutation({
-      query: (product) => ({
-        url: ROUTES.CART,
-        method: HTTP_METHODS.POST,
-        body: product,
+    addToCart: builder.mutation({
+      query: (productId) => ({
+        url: `${ROUTES.PRODUCTS}/${productId}/add-to-cart`,
+        method: HTTP_METHODS.PATCH,
       }),
     }),
+
+    // ✅ Get user cart
     getCart: builder.query({
       query: () => ROUTES.CART,
     }),
 
     removeFromCart: builder.mutation({
       query: (productId) => ({
-        url: `${ROUTES.CART}/${productId}`,
-        method: HTTP_METHODS.DELETE,
+        url: `${ROUTES.PRODUCTS}/${productId}/remove-from-cart`,
+        method: HTTP_METHODS.PATCH,
       }),
     }),
   }),
