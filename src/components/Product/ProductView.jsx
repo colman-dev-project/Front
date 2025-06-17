@@ -1,42 +1,22 @@
 import React from 'react';
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  Rating,
-  List,
-  ListItem,
-  ListItemText,
-  Button,
-  Divider,
-} from '@mui/material';
+import { CardActions, CardContent, Divider } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import {
-  StyledCard,
-  BigStyledCard,
-  ratingWrapperStyle,
-} from './Product.styled.js';
+import { BigStyledCard } from './Product.styled.js';
 import { SharedImage } from '../shared/Image/SharedImage';
 import SharedTypography from '../shared/Text/SharedText.jsx';
 import SharedButton from '../shared/Button/SharedButton.jsx';
-import { Box } from '@mui/material';
 import { UI_TEXT } from '../../constants/text.js';
-import { addSignShekel  } from '../../utils/converting.js';
+import { addSignShekel } from '../../utils/converting.js';
 
 const ProductView = ({
   images,
   name,
   description,
   price,
-  rating,
-  reviewCount,
   lockerLocation,
-  reviews,
   handleAddToCart,
-}) => {
-  return (
+}) => (
+
     <BigStyledCard>
       <SharedImage src={images} alt={name} />
 
@@ -45,14 +25,11 @@ const ProductView = ({
 
         <SharedTypography variant="body2">{description}</SharedTypography>
 
-        <SharedTypography variant="h6"> {addSignShekel (price)}</SharedTypography>
+        <SharedTypography variant="h6">
+          {addSignShekel(price)}
+        </SharedTypography>
 
-        <Box style={ratingWrapperStyle}>
-          <Rating value={rating} readOnly />
-          <SharedTypography variant="body2">
-            ({reviewCount} {UI_TEXT.REVIEWS})
-          </SharedTypography>
-        </Box>
+
 
         <SharedTypography variant="body2">{lockerLocation}</SharedTypography>
       </CardContent>
@@ -69,20 +46,9 @@ const ProductView = ({
 
       <Divider />
 
-      <CardContent>
-        <SharedTypography variant="subtitle1">
-          Customer Reviews:
-        </SharedTypography>
-        <List>
-          {reviews.map((rev) => (
-            <ListItem key={rev.id}>
-              <ListItemText primary={`${rev.name}: "${rev.text}"`} />
-            </ListItem>
-          ))}
-        </List>
-      </CardContent>
+
     </BigStyledCard>
-  );
-};
+
+);
 
 export default ProductView;
