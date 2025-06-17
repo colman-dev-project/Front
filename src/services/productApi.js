@@ -31,10 +31,6 @@ export const productApi = createApi({
       }),
       invalidatesTags: [TAG_TYPES.PRODUCT],
     }),
-    getProductById: builder.query({
-      query: (id) => `${ROUTES.PRODUCTS}/${id}`,
-      providesTags: (result, error, id) => [{ type: TAG_TYPES.PRODUCT, id }],
-    }),
     addProduct: builder.mutation({
       query: (newProduct) => ({
         url: ROUTES.PRODUCTS,
@@ -52,5 +48,4 @@ export const {
   useDeleteProductMutation,
   useUpdateProductMutation,
   useAddProductMutation,
-  useGetProductByIdQuery,
 } = productApi;
