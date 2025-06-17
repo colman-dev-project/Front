@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Card, Typography } from '@mui/material';
+import { Card } from '@mui/material';
 import theme from '../../theme/theme.js';
 import { display } from '@mui/system';
 
@@ -23,14 +23,6 @@ export const SharedTypography = {
       whiteSpace: 'nowrap',
     },
 };
-
-export const StyledSharedTypography = styled(Typography)(({ theme, variant }) => ({
-  color: theme.palette.text.primary,
-  ...(variant === 'subtitle1' && {
-    fontWeight: 'bold',
-    whiteSpace: 'nowrap',
-  }),
-}));
 
 export const BigStyledCard = styled(Card)(({ theme }) => ({
   maxWidth: 600,
