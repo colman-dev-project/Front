@@ -8,8 +8,7 @@ import { SIGNUP_TEXT } from '../../constants/text';
 import { SIGN_UP_CONSTANTS } from '../../constants/signUp.constant.js';
 import { ROUTES } from '../../constants/routerPaths';
 
-import SharedButton from '../shared/Button/SharedButton';
-import SharedLinkButton from '../shared/Button/SharedLinkButton';
+import ActionButton from '../shared/Button/ActionButton.jsx';
 
 import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled';
 
@@ -92,7 +91,7 @@ export default function SignUpForm({ onSubmit, isLoading }) {
             error={!!errors.confirmPassword}
             helperText={errors.confirmPassword?.message}
           />
-          <SharedButton
+          <ActionButton
             type="submit"
             variant="contained"
             size="large"
@@ -100,15 +99,15 @@ export default function SignUpForm({ onSubmit, isLoading }) {
             fullWidth
           >
             {SIGNUP_TEXT.submit}
-          </SharedButton>
-          <SharedLinkButton
+          </ActionButton>
+          <ActionButton
             to={ROUTES.LOGIN}
             variant="text"
             size="small"
             fullWidth
           >
             {SIGNUP_TEXT.loginLinkText}
-          </SharedLinkButton>
+          </ActionButton>
         </Stack>
       </FormWrapper>
     </StyledPaper>

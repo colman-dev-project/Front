@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import useScrollToTop from '../../hooks/useScrollToTop.js';
 import styles from './About.styled.js';
 import SharedTypography from '../../components/shared/Text/SharedText.jsx';
-import SharedButton from '../../components/shared/Button/SharedButton.jsx';
+import ActionButton from '../../components/shared/Button/ActionButton.jsx';
 import SharedGrid from '../../components/shared/Grid/SharedGrid.jsx';
 import { SharedImage } from '../../components/shared/Image/SharedImage.jsx';
 import { ABOUT_TEXT } from '../../constants/text.js';
@@ -86,7 +86,9 @@ function About() {
 
       <Box component={motion.div} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} sx={styles.ctaBox}>
         <SharedTypography variant="h6">{ABOUT_TEXT.CTA_TITLE}</SharedTypography>
-        <SharedButton label={ABOUT_TEXT.CTA_BUTTON} style={styles.button} />
+         <ActionButton>
+           {ABOUT_TEXT.CTA_BUTTON}
+         </ActionButton>
       </Box>
     </Box>
   );

@@ -16,8 +16,7 @@ import { UI_TEXT } from '../../constants/text';
 import OrderSummary from './steps/OrderSummary';
 import PaymentDetails from './steps/PaymentDetails';
 import OrderComplete from './steps/OrderComplete';
-import SharedButton from '../shared/Button/SharedButton';
-import SharedLinkButton from '../shared/Button/SharedLinkButton';
+import ActionButton from '../shared/Button/ActionButton';
 import { ROUTES as ROUTER_PATHS } from '../../constants/routerPaths.js';
 
 const stepComponents = [
@@ -26,11 +25,7 @@ const stepComponents = [
   <OrderComplete />,
 ];
 
-const steps = [
-  'Order Summary',
-  'Payment Details',
-  'Order Complete',
-];
+const steps = ['Order Summary', 'Payment Details', 'Order Complete'];
 
 export default function HorizontalLinearStepper() {
   const { activeStep, handleNext, handleBack } = useStep(steps.length);
@@ -53,19 +48,20 @@ export default function HorizontalLinearStepper() {
       {isFinalStep ? (
         <Box sx={buttonContainerStyle}>
           <Box sx={spacerStyle} />
-          <SharedLinkButton to={ROUTER_PATHS.HOME} label={UI_TEXT.GO_HOME} />
+          <ActionButton to={ROUTER_PATHS.HOME}>{UI_TEXT.GO_HOME}</ActionButton>
         </Box>
       ) : (
         <Box sx={buttonContainerStyle}>
-          <SharedButton
+          <ActionButton
             color="inherit"
             disabled={activeStep === 0 || isFinalStep}
             onClick={handleBack}
             sx={backButton}
-            label={UI_TEXT.BACK}
-          />
+          >
+            {UI_TEXT.BACK}
+          </ActionButton>
           <Box sx={spacerStyle} />
-          <SharedButton onClick={handleNext} label={nextButtonLabel} />
+          <ActionButton onClick={handleNext}>{nextButtonLabel}</ActionButton>
         </Box>
       )}
     </Box>

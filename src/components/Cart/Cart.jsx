@@ -10,7 +10,7 @@ import {
   RemoveButtonWrapper,
   CartItemWrapper,
 } from './Cart.styles';
-import PurchaseButton from '../shared/Button/purchaseButton/PurchaseButton.jsx';
+import ActionButton from '../shared/Button/ActionButton.jsx';
 import CustomDivider from '../shared/Divider/CustomDivider.jsx';
 
 const Cart = ({
@@ -69,9 +69,9 @@ const Cart = ({
                       disabled
                     />
                     <RemoveButtonWrapper>
-                      <PurchaseButton onClick={() => handleItemRemove(id)}>
+                      <ActionButton onClick={() => handleItemRemove(id)}>
                         {CART_TEXT.REMOVE_BUTTON}
-                      </PurchaseButton>
+                      </ActionButton>
                     </RemoveButtonWrapper>
                   </CartItemWrapper>
                 ),
@@ -94,9 +94,9 @@ const Cart = ({
           {!isLoggedIn && (
             <EmptyCartText>{UI_TEXT.CART_LOGIN_REQUIRED}</EmptyCartText>
           )}
-          <PurchaseButton onClick={onContinue} disabled={!canPurchase}>
+          <ActionButton onClick={onContinue} disabled={!canPurchase}>
             {UI_TEXT.CART_CONTINUE}
-          </PurchaseButton>
+          </ActionButton>
         </>
       )}
     </CartContainer>

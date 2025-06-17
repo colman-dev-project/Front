@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { PAYMENT_TEXT } from '../../constants/text.js';
-import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled.js';
-import SharedButton from '../shared/Button/SharedButton.jsx';
+import { StyledPaper, FormWrapper } from './Form.styled.js';
+import ActionButton from '../shared/Button/ActionButton.jsx';
 import {
   CARD_NUMBER_REGEX,
   EXPIRY_REGEX,
@@ -79,7 +79,7 @@ export default function PaymentForm({ onSubmit }) {
             error={!!errors.cardHolder}
             helperText={errors.cardHolder?.message}
           />
-          <SharedButton
+          <ActionButton
             type="submit"
             variant="contained"
             size="large"
@@ -87,7 +87,7 @@ export default function PaymentForm({ onSubmit }) {
             fullWidth
           >
             {PAYMENT_TEXT.submit}
-          </SharedButton>
+          </ActionButton>
         </Stack>
       </FormWrapper>
     </StyledPaper>
