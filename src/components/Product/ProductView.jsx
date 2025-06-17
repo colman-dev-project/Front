@@ -1,29 +1,18 @@
 import React from 'react';
 import {
-  Card,
-  CardMedia,
-  CardContent,
+  Box,
   CardActions,
-  Typography,
-  Rating,
-  List,
-  ListItem,
-  ListItemText,
-  Button,
+  CardContent,
   Divider,
+  Rating,
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import {
-  StyledCard,
-  BigStyledCard,
-  ratingWrapperStyle,
-} from './Product.styled.js';
+import { BigStyledCard, ratingWrapperStyle } from './Product.styled.js';
 import { SharedImage } from '../shared/Image/SharedImage';
 import SharedTypography from '../shared/Text/SharedText.jsx';
 import SharedButton from '../shared/Button/SharedButton.jsx';
-import { Box } from '@mui/material';
 import { UI_TEXT } from '../../constants/text.js';
-import { addSignShekel  } from '../../utils/converting.js';
+import { addSignShekel } from '../../utils/converting.js';
 
 const ProductView = ({
   images,
@@ -33,10 +22,9 @@ const ProductView = ({
   rating,
   reviewCount,
   lockerLocation,
-  reviews,
   handleAddToCart,
-}) => {
-  return (
+}) => (
+
     <BigStyledCard>
       <SharedImage src={images} alt={name} />
 
@@ -45,7 +33,9 @@ const ProductView = ({
 
         <SharedTypography variant="body2">{description}</SharedTypography>
 
-        <SharedTypography variant="h6"> {addSignShekel (price)}</SharedTypography>
+        <SharedTypography variant="h6">
+          {addSignShekel(price)}
+        </SharedTypography>
 
         <Box style={ratingWrapperStyle}>
           <Rating value={rating} readOnly />
@@ -69,20 +59,9 @@ const ProductView = ({
 
       <Divider />
 
-      <CardContent>
-        <SharedTypography variant="subtitle1">
-          Customer Reviews:
-        </SharedTypography>
-        <List>
-          {reviews.map((rev) => (
-            <ListItem key={rev.id}>
-              <ListItemText primary={`${rev.name}: "${rev.text}"`} />
-            </ListItem>
-          ))}
-        </List>
-      </CardContent>
+
     </BigStyledCard>
-  );
-};
+
+);
 
 export default ProductView;
