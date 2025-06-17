@@ -4,25 +4,13 @@ import ProductCard from '../Product/ProductCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { CarouselWrapper } from './ProductCarousel.styled';
-import theme from '../../theme/theme';
-
-const SLIDES_TO_SHOW_DEFAULT = 4;
-const AUTOPLAY_SPEED_MS = 2000;
-
-const RESPONSIVE_BREAKPOINTS = [
-  {
-    breakpoint: theme.breakpoints.values.lg, 
-    settings: { slidesToShow: 3 },
-  },
-  {
-    breakpoint: theme.breakpoints.values.md, 
-    settings: { slidesToShow: 2 },
-  },
-  {
-    breakpoint: theme.breakpoints.values.sm, 
-    settings: { slidesToShow: 1 },
-  },
-];
+import {
+  SLIDES_TO_SHOW_DEFAULT,
+  AUTOPLAY_SPEED_MS,
+  RESPONSIVE_BREAKPOINTS,
+} from '../../constants/carousel';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routerPaths.js';
 
 const ProductCarousel = ({ products }) => {
   const settings = {
@@ -37,12 +25,19 @@ const ProductCarousel = ({ products }) => {
     responsive: RESPONSIVE_BREAKPOINTS,
   };
 
+  const navigate = useNavigate();
+
+  const handleProductClick = (id) => {
+    if (!id) return;
+    navigate(ROUTES.PRODUCT_DETAILS.replace(ROUTES.ID, id));
+  };
+
   return (
     <CarouselWrapper>
       <Slider {...settings}>
         {products.map((product) => (
           <div key={product.id}>
-            <ProductCard {...product} />
+            <ProductCard {...product} onSelect={handleProductClick} />
           </div>
         ))}
       </Slider>
