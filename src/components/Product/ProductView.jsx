@@ -37,12 +37,7 @@ const ProductView = ({
           {addSignShekel(price)}
         </SharedTypography>
 
-        <Box style={ratingWrapperStyle}>
-          <Rating value={rating} readOnly />
-          <SharedTypography variant="body2">
-            ({reviewCount} {UI_TEXT.REVIEWS})
-          </SharedTypography>
-        </Box>
+
 
         <SharedTypography variant="body2">{lockerLocation}</SharedTypography>
       </CardContent>
