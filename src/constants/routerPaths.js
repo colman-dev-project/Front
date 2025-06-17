@@ -15,5 +15,5 @@ export const ROUTES = {
   DASHBOARD_CARDS: '/dashboardCards',
   ADD_PRODUCT: '/dashboardCards/newproduct',
   AUTH_REFRESH: '/auth/refresh',
-  ID: ':id',
+  PRODUCT_ID_PARAM: ':id',
 };

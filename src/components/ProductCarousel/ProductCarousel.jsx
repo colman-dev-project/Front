@@ -29,7 +29,7 @@ const ProductCarousel = ({ products }) => {
 
   const handleProductClick = (id) => {
     if (!id) return;
-    navigate(ROUTES.PRODUCT_DETAILS.replace(ROUTES.ID, id));
+    navigate(ROUTES.PRODUCT_DETAILS.replace(ROUTES.PRODUCT_ID_PARAM, id));
   };
 
   return (

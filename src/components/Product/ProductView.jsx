@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  Box,
-  CardActions,
-  CardContent,
-  Divider,
-  Rating,
-} from '@mui/material';
+import { CardActions, CardContent, Divider } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { BigStyledCard, ratingWrapperStyle } from './Product.styled.js';
+import { BigStyledCard } from './Product.styled.js';
 import { SharedImage } from '../shared/Image/SharedImage';
 import SharedTypography from '../shared/Text/SharedText.jsx';
 import SharedButton from '../shared/Button/SharedButton.jsx';
@@ -19,8 +13,6 @@ const ProductView = ({
   name,
   description,
   price,
-  rating,
-  reviewCount,
   lockerLocation,
   handleAddToCart,
 }) => (
