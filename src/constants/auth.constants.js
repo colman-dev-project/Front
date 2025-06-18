@@ -16,6 +16,10 @@ export const AUTH_ERRORS = {
   GENERAL_LOGOUT_ERROR: 'General logout error',
   UNAUTHORIZED_LOGIN: 'Invalid username or password',
   UNAUTHORIZED_LOGOUT: 'User is not logged in',
+  LOGIN_ERROR: 'Login error:',
+  REGISTER_FAILED: 'Registration failed',
+  GENERAL_REGISTER_ERROR: 'General registration error',
+  DUPLICATE_EMAIL: 'Email already exists',
 };
 
 export const STORAGE_KEYS = {
