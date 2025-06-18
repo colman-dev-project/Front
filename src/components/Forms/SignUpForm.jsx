@@ -11,6 +11,7 @@ import { ROUTES } from '../../constants/routerPaths';
 import ActionButton from '../shared/Button/ActionButton.jsx';
 
 import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled';
+import { BUTTON_VARIANTS } from '../../constants/buttonTypes.js';
 
 const signupSchema = yup.object({
   [SIGN_UP_CONSTANTS.NAME]: yup.string().required(SIGNUP_TEXT.nameRequired),
@@ -93,18 +94,18 @@ export default function SignUpForm({ onSubmit, isLoading }) {
           />
           <ActionButton
             type="submit"
-            variant="contained"
             size="large"
             disabled={isSubmitting || isLoading}
             fullWidth
+            styleType={BUTTON_VARIANTS.FILLED}
           >
             {SIGNUP_TEXT.submit}
           </ActionButton>
           <ActionButton
             to={ROUTES.LOGIN}
-            variant="text"
             size="small"
             fullWidth
+            styleType={BUTTON_VARIANTS.TEXT}
           >
             {SIGNUP_TEXT.loginLinkText}
           </ActionButton>

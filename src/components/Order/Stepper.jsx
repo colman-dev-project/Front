@@ -9,7 +9,6 @@ import {
   StyledStepContentBox,
   buttonContainerStyle,
   spacerStyle,
-  backButton,
 } from './Stepper.styles';
 import { UI_TEXT } from '../../constants/text';
 
@@ -18,6 +17,7 @@ import PaymentDetails from './steps/PaymentDetails';
 import OrderComplete from './steps/OrderComplete';
 import ActionButton from '../shared/Button/ActionButton';
 import { ROUTES as ROUTER_PATHS } from '../../constants/routerPaths.js';
+import { BUTTON_VARIANTS } from '../../constants/buttonTypes.js';
 
 const stepComponents = [
   <OrderSummary />,
@@ -48,20 +48,26 @@ export default function HorizontalLinearStepper() {
       {isFinalStep ? (
         <Box sx={buttonContainerStyle}>
           <Box sx={spacerStyle} />
-          <ActionButton to={ROUTER_PATHS.HOME}>{UI_TEXT.GO_HOME}</ActionButton>
+          <ActionButton
+            to={ROUTER_PATHS.HOME}
+            styleType={BUTTON_VARIANTS.FILLED}
+          >
+            {UI_TEXT.GO_HOME}
+          </ActionButton>
         </Box>
       ) : (
         <Box sx={buttonContainerStyle}>
           <ActionButton
-            color="inherit"
             disabled={activeStep === 0 || isFinalStep}
             onClick={handleBack}
-            sx={backButton}
+            styleType={BUTTON_VARIANTS.FILLED}
           >
             {UI_TEXT.BACK}
           </ActionButton>
           <Box sx={spacerStyle} />
-          <ActionButton onClick={handleNext}>{nextButtonLabel}</ActionButton>
+          <ActionButton onClick={handleNext} styleType={BUTTON_VARIANTS.FILLED}>
+            {nextButtonLabel}
+          </ActionButton>
         </Box>
       )}
     </Box>

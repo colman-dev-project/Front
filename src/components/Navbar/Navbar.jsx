@@ -12,8 +12,8 @@ function Navbar() {
       <CustomToolbar>
         <SharedTypography variant="h6">SecondHand Store</SharedTypography>
         <NavLinks>
-          <ActionButton variantType={BUTTON_VARIANTS.NAVBAR} to={ROUTER_PATHS.HOME}>{UI_TEXT.HOME}</ActionButton>
-          <ActionButton variantType={BUTTON_VARIANTS.NAVBAR} to={ROUTER_PATHS.ABOUT}>{UI_TEXT.ABOUT}</ActionButton>
+          <ActionButton styleType={BUTTON_VARIANTS.NAVBAR} to={ROUTER_PATHS.HOME}>{UI_TEXT.HOME}</ActionButton>
+          <ActionButton styleType={BUTTON_VARIANTS.NAVBAR} to={ROUTER_PATHS.ABOUT}>{UI_TEXT.ABOUT}</ActionButton>
         </NavLinks>
       </CustomToolbar>
     </CustomAppBar>

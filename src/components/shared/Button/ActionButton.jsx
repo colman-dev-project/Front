@@ -7,7 +7,7 @@ const ActionButton = ({
   children,
   to,
   onClick,
-  variantType = BUTTON_VARIANTS.DEFAULT,
+  styleType = BUTTON_VARIANTS.DEFAULT,
   ...props
 }) => {
   return (
@@ -15,7 +15,7 @@ const ActionButton = ({
       component={to ? RouterLink : undefined}
       to={to}
       onClick={onClick}
-      variantType={variantType}
+      styleType={styleType}
       {...props}
     >
       {children}

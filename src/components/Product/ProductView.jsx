@@ -7,6 +7,7 @@ import SharedTypography from '../shared/Text/SharedText.jsx';
 import ActionButton from '../shared/Button/ActionButton.jsx';
 import { UI_TEXT } from '../../constants/text.js';
 import { addSignShekel } from '../../utils/converting.js';
+import { BUTTON_VARIANTS } from '../../constants/buttonTypes.js';
 
 const ProductView = ({
   images,
@@ -31,10 +32,10 @@ const ProductView = ({
 
     <CardActions>
       <ActionButton
-        variant="contained"
         fullWidth
         startIcon={<ShoppingCartIcon />}
         onClick={handleAddToCart}
+        styleType={BUTTON_VARIANTS.FILLED}
       >
         {UI_TEXT.ADD_TO_CART}
       </ActionButton>

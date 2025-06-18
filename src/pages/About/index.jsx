@@ -13,6 +13,7 @@ import ActionButton from '../../components/shared/Button/ActionButton.jsx';
 import SharedGrid from '../../components/shared/Grid/SharedGrid.jsx';
 import { SharedImage } from '../../components/shared/Image/SharedImage.jsx';
 import { ABOUT_TEXT } from '../../constants/text.js';
+import { BUTTON_VARIANTS } from '../../constants/buttonTypes.js';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -86,7 +87,7 @@ function About() {
 
       <Box component={motion.div} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} sx={styles.ctaBox}>
         <SharedTypography variant="h6">{ABOUT_TEXT.CTA_TITLE}</SharedTypography>
-         <ActionButton>
+         <ActionButton styleType={BUTTON_VARIANTS.OUTLINED}>
            {ABOUT_TEXT.CTA_BUTTON}
          </ActionButton>
       </Box>

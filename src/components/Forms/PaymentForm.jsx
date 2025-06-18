@@ -12,6 +12,7 @@ import {
   CVV_REGEX,
 } from '../../constants/regex.js';
 import SharedTypography from '../shared/Text/SharedText.jsx';
+import { BUTTON_VARIANTS } from '../../constants/buttonTypes.js';
 
 const paymentSchema = yup.object({
   cardNumber: yup
@@ -81,10 +82,10 @@ export default function PaymentForm({ onSubmit }) {
           />
           <ActionButton
             type="submit"
-            variant="contained"
             size="large"
             disabled={isSubmitting}
             fullWidth
+            styleType={BUTTON_VARIANTS.FILLED}
           >
             {PAYMENT_TEXT.submit}
           </ActionButton>

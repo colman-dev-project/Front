@@ -1,6 +1,7 @@
 export const BUTTON_VARIANTS = {
-  DEFAULT: 'default',
-  LINK: 'link',
-  PURCHASE: 'purchase',
+  FILLED: 'filled',
+  OUTLINED: 'outlined',
+  TEXT: 'text',
   NAVBAR: 'navbar',
+  DEFAULT: 'default',
 };
