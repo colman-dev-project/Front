@@ -66,19 +66,6 @@ const styles = {
     textAlign: "center",
     backgroundColor: "#eef1f4",
   },
-  button: {
-    mt: "1.5rem",
-    fontSize: "1rem",
-    padding: "0.75rem 2.25rem",
-    borderRadius: "2rem",
-    backgroundColor: "#d1dfd7",
-    color: "#1a1a1a",
-    fontWeight: 500,
-    transition: "background-color 0.3s ease",
-    "&:hover": {
-      backgroundColor: "#bcd2c4",
-    },
-  },
 };
 
 export default styles;

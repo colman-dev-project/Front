@@ -9,16 +9,15 @@ import {
   StyledStepContentBox,
   buttonContainerStyle,
   spacerStyle,
-  backButton,
 } from './Stepper.styles';
 import { UI_TEXT } from '../../constants/text';
 
 import OrderSummary from './steps/OrderSummary';
 import PaymentDetails from './steps/PaymentDetails';
 import OrderComplete from './steps/OrderComplete';
-import SharedButton from '../shared/Button/SharedButton';
-import SharedLinkButton from '../shared/Button/SharedLinkButton';
+import ActionButton from '../shared/Button/ActionButton';
 import { ROUTES as ROUTER_PATHS } from '../../constants/routerPaths.js';
+import { BUTTON_VARIANTS } from '../../constants/buttonTypes.js';
 
 const stepComponents = [
   <OrderSummary />,
@@ -26,11 +25,7 @@ const stepComponents = [
   <OrderComplete />,
 ];
 
-const steps = [
-  'Order Summary',
-  'Payment Details',
-  'Order Complete',
-];
+const steps = ['Order Summary', 'Payment Details', 'Order Complete'];
 
 export default function HorizontalLinearStepper() {
   const { activeStep, handleNext, handleBack } = useStep(steps.length);
@@ -53,19 +48,26 @@ export default function HorizontalLinearStepper() {
       {isFinalStep ? (
         <Box sx={buttonContainerStyle}>
           <Box sx={spacerStyle} />
-          <SharedLinkButton to={ROUTER_PATHS.HOME} label={UI_TEXT.GO_HOME} />
+          <ActionButton
+            to={ROUTER_PATHS.HOME}
+            styleType={BUTTON_VARIANTS.FILLED}
+          >
+            {UI_TEXT.GO_HOME}
+          </ActionButton>
         </Box>
       ) : (
         <Box sx={buttonContainerStyle}>
-          <SharedButton
-            color="inherit"
+          <ActionButton
             disabled={activeStep === 0 || isFinalStep}
             onClick={handleBack}
-            sx={backButton}
-            label={UI_TEXT.BACK}
-          />
+            styleType={BUTTON_VARIANTS.FILLED}
+          >
+            {UI_TEXT.BACK}
+          </ActionButton>
           <Box sx={spacerStyle} />
-          <SharedButton onClick={handleNext} label={nextButtonLabel} />
+          <ActionButton onClick={handleNext} styleType={BUTTON_VARIANTS.FILLED}>
+            {nextButtonLabel}
+          </ActionButton>
         </Box>
       )}
     </Box>
