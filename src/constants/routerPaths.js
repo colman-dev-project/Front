@@ -16,4 +16,5 @@ export const ROUTES = {
   ADD_PRODUCT: '/dashboardCards/newproduct',
   AUTH_REFRESH: '/auth/refresh',
   PRODUCT_ID_PARAM: ':id',
+  LOGOUT: '/auth/logout',
 };

@@ -7,15 +7,15 @@ export const CustomAppBar = styled(AppBar)({
 });
 
 export const CustomToolbar = styled(Toolbar)({
-  position: 'relative',
   display: 'flex',
+  justifyContent: 'space-between',
   alignItems: 'center',
+  position: 'relative',
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
 });
 
 export const NavLinks = styled(Box)({
-  position: 'absolute',
-  left: '50%',
-  transform: 'translateX(-50%)',
   display: 'flex',
   gap: '1.5rem',
 });

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLoginUserMutation } from '../../services/authApi.js';
 import { ROUTES } from '../../constants/routerPaths.js';
@@ -11,8 +12,14 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const [loginUser, { isLoading }] = useLoginUserMutation();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const handleLogin = async (formData) => {
+    if (localStorage.getItem('accessToken')) {
+      return;
+    }
+
+
     try {
       await loginUser(formData).unwrap();
 
@@ -28,6 +35,11 @@ export default function LoginPage() {
       setError(message);
     }
   };
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate(ROUTES.HOME);
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <div>

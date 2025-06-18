@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useRegisterUserMutation } from '../../services/authApi';
 import SignupForm from '../../components/Forms/SignUpForm';
@@ -9,8 +10,12 @@ import { AUTH_ERRORS } from '../../constants/auth.constants';
 export default function SignupPage() {
   const navigate = useNavigate();
   const [registerUser, { isLoading, error }] = useRegisterUserMutation();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const handleSignup = async (formData) => {
+    if (localStorage.getItem('accessToken')) {
+      return;
+    }
     try {
       await registerUser(formData).unwrap();
       navigate(ROUTES.LOGIN);
@@ -18,6 +23,13 @@ export default function SignupPage() {
       console.error(AUTH_ERRORS.REGISTER_FAILED, err);
     }
   };
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate(ROUTES.HOME);
+    }
+  }, [isLoggedIn, navigate]);
+
+
 
   const errorMessage =
     error?.data?.error ||
