@@ -1,4 +1,4 @@
-export function extractedAuthError(err, fallbackMessage) {
+export function extractApiError(err, fallbackMessage){
   return (
     err?.data?.error ||
     err?.data?.message ||

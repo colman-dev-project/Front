@@ -12,7 +12,7 @@ import Manager_bar from './pages/Manager/Manager.jsx';
 import OrderProcess from './pages/OrderProcess/OrderProcess.jsx';
 import ProductPage from './pages/Product/ProductPage.jsx';
 import ProductListPage from './pages/Products/ProductListPage.jsx';
-import SignupPage from './pages/SignUp/SignupPage.jsx';
+import SignUpPage from './pages/SignUp/SignUpPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       { path: ROUTES.CUSTOMER_PAGE, element: <Customer_Bar /> },
       { path: ROUTES.CART, element: <CartPage /> },
       { path: ROUTES.LOGIN, element: <LoginPage /> },
-      { path: ROUTES.REGISTER, element: <SignupPage /> },
+      { path: ROUTES.REGISTER, element: <SignUpPage /> },
       { path: ROUTES.DASHBOARD_CARDS, element: <DashboardCards /> },
     ],
   },
