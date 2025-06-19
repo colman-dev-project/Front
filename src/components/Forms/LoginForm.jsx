@@ -3,12 +3,11 @@ import { TextField, Stack } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import SharedButton from '../shared/Button/SharedButton';
-import SharedLinkButton from '../shared/Button/SharedLinkButton';
-import SharedGrid from '../shared/Grid/SharedGrid';
+import ActionButton from '../shared/Button/ActionButton';
 import { LOGIN_TEXT } from '../../constants/text';
 import { StyledPaper, TitleWrapper, FormWrapper } from './Form.styled';
 import { ROUTES } from "../../constants/routerPaths.js";
+import { BUTTON_VARIANTS } from '../../constants/buttonTypes.js';
 
 const loginSchema = yup.object({
   username: yup.string().required(LOGIN_TEXT.usernameRequired),
@@ -50,24 +49,24 @@ export default function LoginForm({ onSubmit }) {
             error={!!errors.password}
             helperText={errors.password?.message}
           />
-          <SharedButton
+          <ActionButton
             type="submit"
-            variant="contained"
             size="large"
             disabled={isSubmitting}
             fullWidth
+            styleType={BUTTON_VARIANTS.FILLED}
           >
             {LOGIN_TEXT.submit}
-          </SharedButton>
+          </ActionButton>
 
-          <SharedLinkButton
+          <ActionButton
             to={ROUTES.REGISTER}
-            variant="text"
             size="small"
             fullWidth
+            styleType={BUTTON_VARIANTS.TEXT}
           >
             {LOGIN_TEXT.signupLinkText}
-          </SharedLinkButton>
+          </ActionButton>
         </Stack>
       </FormWrapper>
     </StyledPaper>
