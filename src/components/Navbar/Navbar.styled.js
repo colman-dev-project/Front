@@ -15,7 +15,18 @@ export const CustomToolbar = styled(Toolbar)({
   paddingRight: '1rem',
 });
 
-export const NavLinks = styled(Box)({
+
+
+export const Section = styled(Box)(({ align = 'left' }) => ({
+  flex: 1,
   display: 'flex',
+  alignItems: 'center',
+  justifyContent:
+    align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
   gap: '1.5rem',
-});
+}));
+
+
+export const LeftSection = styled(Section)({ justifyContent: 'flex-start' });
+export const CenterSection = styled(Section)({ justifyContent: 'center' });
+export const RightSection = styled(Section)({ justifyContent: 'flex-end' });
