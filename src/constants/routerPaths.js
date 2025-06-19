@@ -17,4 +17,5 @@ export const ROUTES = {
   AUTH_REFRESH: '/auth/refresh',
   PRODUCT_ID_PARAM: ':id',
   LOGOUT: '/auth/logout',
+  CURRENT_USER: '/auth/me'
 };
