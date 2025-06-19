@@ -33,12 +33,12 @@ const router = createBrowserRouter([
           { path: ROUTES.CUSTOMER_PAGE, element: <Customer_Bar /> },
           { path: ROUTES.CART, element: <CartPage /> },
           { path: ROUTES.DASHBOARD_CARDS, element: <DashboardCards /> },
+          { path: ROUTES.LOGIN, element: <LoginPage /> },
+          { path: ROUTES.REGISTER, element: <SignUpPage /> },
         ],
       },
     ],
   },
-  { path: ROUTES.LOGIN, element: <LoginPage /> },
-  { path: ROUTES.REGISTER, element: <SignUpPage /> },
 ]);
 
 export { router };

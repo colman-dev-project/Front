@@ -38,6 +38,7 @@ export const UI_TEXT = {
   ADD_PRODUCT: 'Add Product.',
   UPLOAD_PRODUCT: 'Upload a new product to Locker It.',
   VIEW_ANALYTICS: 'View your products, orders, and analytics.',
+  HELLO_USER: 'Hello, ',
 };
 
 export const LOGIN_TEXT = {
