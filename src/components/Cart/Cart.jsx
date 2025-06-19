@@ -51,10 +51,10 @@ const Cart = ({
         <>
           <SharedGrid
             items={validItems.map(
-              ({ id, image, name, price, rating, ...rest }) => ({
+              ({ id, images, name, price, rating, ...rest }) => ({
                 ...rest,
                 id,
-                image,
+                images,
                 name,
                 price,
                 rating,
@@ -62,7 +62,7 @@ const Cart = ({
                   <CartItemWrapper>
                     <ProductCard
                       id={id}
-                      image={image}
+                      images={images}
                       name={name}
                       price={price}
                       rating={rating}
