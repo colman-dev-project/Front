@@ -4,13 +4,19 @@ import {
   useGetCartQuery,
   useRemoveFromCartMutation,
 } from '../../services/cartApi';
+import { ERROR_MESSAGES } from '../../constants/errors.js';
 
 const CartPage = () => {
-  const { data: cart = [], isLoading } = useGetCartQuery(undefined, {
-    refetchOnMountOrArgChange: false,
+  const {
+    data: cart = [],
+    isLoading,
+    isError,
+  } = useGetCartQuery(undefined, {
+    refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,
     refetchOnFocus: true,
   });
+
   const [removeFromCart] = useRemoveFromCartMutation();
 
   const total = cart.reduce((acc, item) => acc + item.price, 0);
@@ -23,7 +29,7 @@ const CartPage = () => {
     try {
       await removeFromCart(productId).unwrap();
     } catch (error) {
-      console.error('Remove failed', error);
+      console.error(ERROR_MESSAGES.REMOVE_FAILED, error);
     }
   };
 
