@@ -2,7 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { getAuthButton, mainNavItems } from './Navbar.helpers.jsx';
+import AuthButton from './AuthButton.jsx';
+import { mainNavItems } from './Navbar.helpers.jsx';
 import {
   CustomAppBar,
   CustomToolbar,
@@ -50,7 +51,7 @@ function Navbar() {
         </CenterSection>
 
         <RightSection>
-          {getAuthButton({ isLoggedIn, handleLogout, navigate })}
+          <AuthButton isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
         </RightSection>
       </CustomToolbar>
     </CustomAppBar>
